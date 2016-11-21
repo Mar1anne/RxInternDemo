@@ -1,0 +1,17 @@
+PODS:
+  - DrawerController (3.0.0):
+    - DrawerController/Core (= 3.0.0)
+    - DrawerController/DrawerVisualStates (= 3.0.0)
+  - DrawerController/Core (3.0.0)
+  - DrawerController/DrawerVisualStates (3.0.0):
+    - DrawerController/Core
+
+DEPENDENCIES:
+  - DrawerController
+
+SPEC CHECKSUMS:
+  DrawerController: 5e859c5dbeae3cea20981eb5ff2aa16eb946dff9
+
+PODFILE CHECKSUM: c0a969adb35cd7a62432d8d63d2232d6d8f14467
+
+COCOAPODS: 1.1.1
