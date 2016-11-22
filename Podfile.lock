@@ -5,13 +5,16 @@ PODS:
   - DrawerController/Core (3.0.0)
   - DrawerController/DrawerVisualStates (3.0.0):
     - DrawerController/Core
+  - SnapKit (3.0.2)
 
 DEPENDENCIES:
   - DrawerController
+  - SnapKit
 
 SPEC CHECKSUMS:
   DrawerController: 5e859c5dbeae3cea20981eb5ff2aa16eb946dff9
+  SnapKit: 2e456761aa92d4d4067a7a5594c18769d451a8ad
 
-PODFILE CHECKSUM: c0a969adb35cd7a62432d8d63d2232d6d8f14467
+PODFILE CHECKSUM: b6e300fa4c32c7b57d025d951df12155dc38eb12
 
 COCOAPODS: 1.1.1

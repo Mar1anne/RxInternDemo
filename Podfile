@@ -6,5 +6,6 @@ use_frameworks!
 target 'InternDemo' do
 
 pod 'DrawerController'
+pod 'SnapKit'
 
 end
