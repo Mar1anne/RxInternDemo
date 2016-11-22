@@ -8,12 +8,13 @@
 
 import UIKit
 
-class MenuViewController: UIViewController {
+class MenuViewController: BaseViewController {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
+    override func setupViews() {
         view.backgroundColor = .yellow
     }
-
+    
+    override func setupConstraints() {
+        
+    }
 }

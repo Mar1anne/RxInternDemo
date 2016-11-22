@@ -8,12 +8,13 @@
 
 import UIKit
 
-class PostsViewController: UIViewController {
+class PostsViewController: BaseViewController {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
+    override func setupViews() {
         view.backgroundColor = .red
     }
-
+    
+    override func setupConstraints() {
+        
+    }
 }
