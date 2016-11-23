@@ -17,4 +17,5 @@ class MenuViewController: BaseViewController {
     override func setupConstraints() {
         
     }
+    
 }

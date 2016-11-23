@@ -46,7 +46,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let centerViewController = PostsViewController()
         let leftViewController = MenuViewController()
         
-        drawerController = DrawerController(centerViewController: centerViewController,
+        let mainNavigationController = UINavigationController(rootViewController: centerViewController)
+        
+        drawerController = DrawerController(centerViewController: mainNavigationController,
                                             leftDrawerViewController: leftViewController)
         
         window?.rootViewController = drawerController

@@ -11,10 +11,26 @@ import UIKit
 class PostsViewController: BaseViewController {
 
     override func setupViews() {
-        view.backgroundColor = .red
+        view.backgroundColor = .lightGray
+        navigationController?.navigationBar.isTranslucent = false
+        
+        addMenuButton()
     }
     
     override func setupConstraints() {
         
     }
+    
+    private func addMenuButton() {
+        let image = UIImage(named: "cm_menu_white")
+        let barButton = UIBarButtonItem(image: image,
+                                        style: .plain,
+                                        target: self, action: #selector(onMenu(barButton:)))
+        navigationItem.setLeftBarButton(barButton, animated: false)
+    }
+    
+    func onMenu(barButton: UIBarButtonItem) {
+        evo_drawerController?.toggleLeftDrawerSide(animated: true, completion: nil)
+    }
+    
 }
