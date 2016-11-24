@@ -7,5 +7,8 @@ target 'InternDemo' do
 
 pod 'DrawerController'
 pod 'SnapKit'
+pod 'RxOptional'
+pod 'RxCocoa'
+pod 'RxSwift'
 
 end
