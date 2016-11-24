@@ -15,7 +15,7 @@ class MenuViewController: BaseViewController {
 
     let tableView = UITableView()
 
-    let menuOptions = Observable.just(["My Posts", "Popular posts", "Sync", "Logout"])
+    let menuOptions = Observable.just(["My Posts", "Popular posts", "Sync", "Logout"]) // TODO: Change them runtime if other options are needed or changed
     let disposeBag = DisposeBag()
     
     //MARK: - View Lifecycle
@@ -31,11 +31,11 @@ class MenuViewController: BaseViewController {
         let headerSize = CGSize(width: Constants.UI.screenWidth, height: Constants.UI.screenHeight*0.5)
         let headerView = MenuTableHeaderView(frame: CGRect(origin: CGPoint.zero, size: headerSize))
         
-        tableView.tableHeaderView = headerView
         tableView.isScrollEnabled = false
-        tableView.register(MenuTableViewCell.self, forCellReuseIdentifier: MenuTableViewCell.identifier)
         tableView.tableFooterView = UIView()
-        
+        tableView.tableHeaderView = headerView
+        tableView.register(MenuTableViewCell.self, forCellReuseIdentifier: MenuTableViewCell.identifier)
+
         view.addSubview(tableView)
     }
     
