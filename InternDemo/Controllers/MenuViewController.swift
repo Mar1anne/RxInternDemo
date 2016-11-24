@@ -7,15 +7,50 @@
 //
 
 import UIKit
+import SnapKit
+import RxSwift
+import RxCocoa
 
 class MenuViewController: BaseViewController {
 
+    let tableView = UITableView()
+
+    let menuOptions = Observable.just(["My Posts", "Popular posts", "Sync", "Logout"])
+    let disposeBag = DisposeBag()
+    
+    //MARK: - View Lifecycle
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setupTableView()
+    }
+    
+    //MARK: - View setup
     override func setupViews() {
         view.backgroundColor = .yellow
+        
+        let headerSize = CGSize(width: Constants.UI.screenWidth, height: Constants.UI.screenHeight*0.5)
+        let headerView = MenuTableHeaderView(frame: CGRect(origin: CGPoint.zero, size: headerSize))
+        
+        tableView.tableHeaderView = headerView
+        tableView.isScrollEnabled = false
+        tableView.register(MenuTableViewCell.self, forCellReuseIdentifier: MenuTableViewCell.identifier)
+        tableView.tableFooterView = UIView()
+        
+        view.addSubview(tableView)
     }
     
     override func setupConstraints() {
-        
+        tableView.snp.makeConstraints { (make) in
+            make.edges.equalTo(self.view)
+        }
     }
     
+    //MARK: - Rx setup
+    private func setupTableView() {
+        menuOptions
+            .bindTo(tableView.rx.items(cellIdentifier: MenuTableViewCell.identifier, cellType: MenuTableViewCell.self)) { (row, element, cell) in
+            cell.textLabel?.text = element
+        }
+        .addDisposableTo(disposeBag)
+    }
 }

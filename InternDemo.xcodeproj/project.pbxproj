@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		6C66AB1EC3BB638940A1908D /* Pods_InternDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2024B1A67978F32B808194A6 /* Pods_InternDemo.framework */; };
+		E13063E41DE6FC7E002A942C /* MenuTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E13063E31DE6FC7E002A942C /* MenuTableHeaderView.swift */; };
+		E13063E71DE6FCFA002A942C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E13063E61DE6FCFA002A942C /* Constants.swift */; };
+		E13063E91DE712B7002A942C /* MenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E13063E81DE712B7002A942C /* MenuTableViewCell.swift */; };
 		E1B30DC91DE492D3002B678D /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B30DC41DE492D3002B678D /* MenuViewController.swift */; };
 		E1B30DCA1DE492D3002B678D /* PostsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B30DC51DE492D3002B678D /* PostsViewController.swift */; };
 		E1B30DCC1DE49387002B678D /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B30DCB1DE49387002B678D /* BaseViewController.swift */; };
@@ -19,6 +22,9 @@
 		1A75AD2BF335ABD2CC99FC2C /* Pods-InternDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InternDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-InternDemo/Pods-InternDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		2024B1A67978F32B808194A6 /* Pods_InternDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_InternDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A0AEFCC571C0B4B7C873F65 /* Pods-InternDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InternDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-InternDemo/Pods-InternDemo.release.xcconfig"; sourceTree = "<group>"; };
+		E13063E31DE6FC7E002A942C /* MenuTableHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuTableHeaderView.swift; sourceTree = "<group>"; };
+		E13063E61DE6FCFA002A942C /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		E13063E81DE712B7002A942C /* MenuTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuTableViewCell.swift; sourceTree = "<group>"; };
 		E1B30DC41DE492D3002B678D /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		E1B30DC51DE492D3002B678D /* PostsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostsViewController.swift; sourceTree = "<group>"; };
 		E1B30DCB1DE49387002B678D /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
@@ -57,6 +63,14 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		E13063E51DE6FCE7002A942C /* Misc */ = {
+			isa = PBXGroup;
+			children = (
+				E13063E61DE6FCFA002A942C /* Constants.swift */,
+			);
+			path = Misc;
+			sourceTree = "<group>";
+		};
 		E1B30DC31DE492D3002B678D /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -84,6 +98,8 @@
 		E1B30DC81DE492D3002B678D /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				E13063E31DE6FC7E002A942C /* MenuTableHeaderView.swift */,
+				E13063E81DE712B7002A942C /* MenuTableViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -112,6 +128,7 @@
 				E1B7A99F1DE33AFA00EBFEA5 /* AppDelegate.swift */,
 				E1B30DC61DE492D3002B678D /* Models */,
 				E1B30DC71DE492D3002B678D /* Network */,
+				E13063E51DE6FCE7002A942C /* Misc */,
 				E1B30DC31DE492D3002B678D /* Controllers */,
 				E1B30DC81DE492D3002B678D /* Views */,
 				E1B7A9A61DE33AFA00EBFEA5 /* Assets.xcassets */,
@@ -242,10 +259,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E13063E41DE6FC7E002A942C /* MenuTableHeaderView.swift in Sources */,
 				E1B30DCA1DE492D3002B678D /* PostsViewController.swift in Sources */,
+				E13063E91DE712B7002A942C /* MenuTableViewCell.swift in Sources */,
 				E1B30DCC1DE49387002B678D /* BaseViewController.swift in Sources */,
 				E1B30DC91DE492D3002B678D /* MenuViewController.swift in Sources */,
 				E1B7A9A01DE33AFA00EBFEA5 /* AppDelegate.swift in Sources */,
+				E13063E71DE6FCFA002A942C /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
