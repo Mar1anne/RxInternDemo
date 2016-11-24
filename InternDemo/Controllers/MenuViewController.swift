@@ -26,6 +26,8 @@ class MenuViewController: BaseViewController {
     
     //MARK: - View setup
     override func setupViews() {
+        super.setupViews()
+        
         view.backgroundColor = .yellow
         
         let headerSize = CGSize(width: Constants.UI.screenWidth, height: Constants.UI.screenHeight*0.5)
@@ -40,6 +42,8 @@ class MenuViewController: BaseViewController {
     }
     
     override func setupConstraints() {
+        super.setupConstraints()
+        
         tableView.snp.makeConstraints { (make) in
             make.edges.equalTo(self.view)
         }

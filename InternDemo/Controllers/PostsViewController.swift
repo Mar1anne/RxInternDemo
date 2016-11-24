@@ -11,6 +11,8 @@ import UIKit
 class PostsViewController: BaseViewController {
 
     override func setupViews() {
+        super.setupViews()
+        
         view.backgroundColor = .lightGray
         navigationController?.navigationBar.isTranslucent = false
         
@@ -18,7 +20,7 @@ class PostsViewController: BaseViewController {
     }
     
     override func setupConstraints() {
-        
+        super.setupConstraints()
     }
     
     private func addMenuButton() {
