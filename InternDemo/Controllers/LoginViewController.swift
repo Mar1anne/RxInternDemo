@@ -20,13 +20,13 @@ class LoginViewController: BaseViewController {
         view.backgroundColor = .white
         
         logoLabel.text = "imgur Demo"
-        logoLabel.font = UIFont(name: "AppleSDGothicNeo-Bold", size: 37)
+        logoLabel.font = UIFont.gothicBoldFontOfSize(size: 37)
         
         loginButton.backgroundColor = .green
         loginButton.layer.cornerRadius = 20
         loginButton.clipsToBounds = true
         loginButton.setTitle("Login", for: .normal)
-        loginButton.titleLabel?.font = UIFont(name: "AppleSDGothicNeo-Bold", size: 15)
+        loginButton.titleLabel?.font = UIFont.gothicBoldFontOfSize(size: 17)
         
         view.addSubview(logoLabel)
         view.addSubview(loginButton)
