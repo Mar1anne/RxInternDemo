@@ -9,7 +9,7 @@
 import UIKit
 import ObjectMapper
 
-class User: Mappable {
+class User: Mappable, NSCoding {
 
     var id: Int!
     var username: String!
@@ -20,5 +20,16 @@ class User: Mappable {
         id <- map["id"]
         username <- map["url"]
     }
+    
+    required init?(coder aDecoder: NSCoder) {
+        id = aDecoder.decodeObject(forKey: "id") as? Int
+        username = aDecoder.decodeObject(forKey: "url") as? String
+    }
+    
+    func encode(with aCoder: NSCoder) {
+        aCoder.encode(id, forKey: "id")
+        aCoder.encode(username, forKey: "url")
+    }
+    
     
 }
