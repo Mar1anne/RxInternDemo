@@ -22,8 +22,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow(frame: CGRect(origin: CGPoint.zero, size: screenSize))
         
         _ = UserManager.sharedManager
-        
-//        setupWindowAndRootController()
+        _ = ControllerManager.sharedManager
+
         return true
     }
     

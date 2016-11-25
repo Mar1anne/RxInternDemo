@@ -17,13 +17,16 @@ class LoginViewController: BaseViewController {
     override func setupViews() {
         super.setupViews()
         
+        view.backgroundColor = .white
+        
         logoLabel.text = "imgur Demo"
-        logoLabel.font = UIFont(name: "", size: 17)
+        logoLabel.font = UIFont(name: "AppleSDGothicNeo-Bold", size: 37)
         
         loginButton.backgroundColor = .green
         loginButton.layer.cornerRadius = 20
         loginButton.clipsToBounds = true
         loginButton.setTitle("Login", for: .normal)
+        loginButton.titleLabel?.font = UIFont(name: "AppleSDGothicNeo-Bold", size: 15)
         
         view.addSubview(logoLabel)
         view.addSubview(loginButton)
@@ -33,7 +36,8 @@ class LoginViewController: BaseViewController {
         super.setupConstraints()
         
         logoLabel.snp.makeConstraints { (make) in
-            make.center.equalTo(view)
+            make.centerX.equalTo(view)
+            make.centerY.equalTo(view).offset(-30)
         }
         
         loginButton.snp.makeConstraints { (make) in

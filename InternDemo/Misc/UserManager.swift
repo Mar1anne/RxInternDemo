@@ -12,9 +12,14 @@ import RxSwift
 class UserManager {
     static let sharedManager = UserManager()
     
+    private var cachedUser: Variable<User?>!
+    
     var currentUser: Variable<User?> {
         get {
-            return getCurrentUser()
+            if cachedUser != nil && cachedUser.value == nil {
+                cachedUser = getCurrentUser()
+            }
+            return cachedUser
         }
         set {
             setCurrentUser(user: currentUser)
@@ -22,7 +27,7 @@ class UserManager {
     }
     
     private init() {
-        
+        cachedUser = getCurrentUser()
     }
     
     private func getCurrentUser() -> Variable<User?> {
@@ -33,6 +38,8 @@ class UserManager {
     }
     
     private func setCurrentUser(user: Variable<User?>) {
+        cachedUser = user
+        
         if let currentUser = user.value {
             UserDefaults.standard.set(currentUser, forKey: "currentUser")
         } else {
