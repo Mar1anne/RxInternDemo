@@ -8,6 +8,7 @@
 
 import UIKit
 import SnapKit
+import RxSwift
 
 class MenuTableHeaderView: UIView {
 
@@ -51,4 +52,8 @@ class MenuTableHeaderView: UIView {
         }
     }
     
+    //MARK: - Methods
+    func bindTo(userObservable: Observable<User>) {
+        
+    }
 }

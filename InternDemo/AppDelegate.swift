@@ -18,7 +18,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication,
                      willFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey : Any]? = nil) -> Bool {
         
-        setupWindowAndRootController()
+        let screenSize = UIScreen.main.bounds.size
+        window = UIWindow(frame: CGRect(origin: CGPoint.zero, size: screenSize))
+        
+        _ = UserManager.sharedManager
+        
+//        setupWindowAndRootController()
         return true
     }
     
@@ -40,8 +45,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) { }
     
     func setupWindowAndRootController() {
-        let screenSize = UIScreen.main.bounds.size
-        window = UIWindow(frame: CGRect(origin: CGPoint.zero, size: screenSize))
+        
         
         let centerViewController = PostsViewController()
         let leftViewController = MenuViewController()

@@ -15,6 +15,7 @@
 		E13063ED1DE71E59002A942C /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = E13063EC1DE71E59002A942C /* Post.swift */; };
 		E13063EF1DE72783002A942C /* ControllerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E13063EE1DE72783002A942C /* ControllerManager.swift */; };
 		E13063F11DE727A5002A942C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E13063F01DE727A5002A942C /* LoginViewController.swift */; };
+		E13063F31DE74A77002A942C /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E13063F21DE74A77002A942C /* UserManager.swift */; };
 		E1B30DC91DE492D3002B678D /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B30DC41DE492D3002B678D /* MenuViewController.swift */; };
 		E1B30DCA1DE492D3002B678D /* PostsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B30DC51DE492D3002B678D /* PostsViewController.swift */; };
 		E1B30DCC1DE49387002B678D /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B30DCB1DE49387002B678D /* BaseViewController.swift */; };
@@ -33,6 +34,7 @@
 		E13063EC1DE71E59002A942C /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		E13063EE1DE72783002A942C /* ControllerManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ControllerManager.swift; sourceTree = "<group>"; };
 		E13063F01DE727A5002A942C /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		E13063F21DE74A77002A942C /* UserManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
 		E1B30DC41DE492D3002B678D /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		E1B30DC51DE492D3002B678D /* PostsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostsViewController.swift; sourceTree = "<group>"; };
 		E1B30DCB1DE49387002B678D /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
@@ -76,6 +78,7 @@
 			children = (
 				E13063E61DE6FCFA002A942C /* Constants.swift */,
 				E13063EE1DE72783002A942C /* ControllerManager.swift */,
+				E13063F21DE74A77002A942C /* UserManager.swift */,
 			);
 			path = Misc;
 			sourceTree = "<group>";
@@ -277,6 +280,7 @@
 				E1B30DCC1DE49387002B678D /* BaseViewController.swift in Sources */,
 				E13063EB1DE71E51002A942C /* User.swift in Sources */,
 				E13063EF1DE72783002A942C /* ControllerManager.swift in Sources */,
+				E13063F31DE74A77002A942C /* UserManager.swift in Sources */,
 				E1B30DC91DE492D3002B678D /* MenuViewController.swift in Sources */,
 				E13063ED1DE71E59002A942C /* Post.swift in Sources */,
 				E1B7A9A01DE33AFA00EBFEA5 /* AppDelegate.swift in Sources */,

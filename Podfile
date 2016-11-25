@@ -5,10 +5,13 @@ use_frameworks!
 
 target 'InternDemo' do
 
+pod 'RxCocoa'
+pod 'RxOptional'
+pod 'RxSwift'
+
 pod 'DrawerController'
 pod 'SnapKit'
-pod 'RxOptional'
-pod 'RxCocoa'
-pod 'RxSwift'
+pod 'Alamofire'
+pod 'ObjectMapper'
 
 end

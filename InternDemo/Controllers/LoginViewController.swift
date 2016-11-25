@@ -12,11 +12,6 @@ class LoginViewController: BaseViewController {
 
     private let logoLabel = UILabel()
     private let loginButton = UIButton()
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-    }
 
     //MARK: - View setup
     override func setupViews() {
@@ -47,5 +42,10 @@ class LoginViewController: BaseViewController {
             make.centerX.equalTo(view)
             make.height.equalTo(40)
         }
+    }
+    
+    //MARK: - Login
+    func onLogin() {
+        
     }
 }
