@@ -42,6 +42,12 @@ class ControllerManager {
         
         let loginController = LoginViewController()
         window?.rootViewController = loginController
+        
+        // Test code
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
+            let user = User(JSON: ["id":"123456", "url":"test_url"])
+            UserManager.sharedManager.currentUser = Variable.init(user)
+        })
     }
     
     private func setDrawerRootController() {

@@ -9,11 +9,11 @@
 import UIKit
 import ObjectMapper
 
-class User: Mappable, NSCoding {
+class User: NSObject, Mappable, NSCoding {
 
     var id: Int!
     var username: String!
-    
+        
     required init?(map: Map) { }
     
     func mapping(map: Map) {

@@ -22,7 +22,7 @@ class UserManager {
             return cachedUser
         }
         set {
-            setCurrentUser(user: currentUser)
+            setCurrentUser(user: newValue)
         }
     }
     
@@ -31,9 +31,12 @@ class UserManager {
     }
     
     private func getCurrentUser() -> Variable<User?> {
-        if let object = UserDefaults.standard.object(forKey: "currentUser") as? User {
-            return Variable.init(object)
+        if let data = UserDefaults.standard.object(forKey: "currentUser") as? Data {
+            if let user = NSKeyedUnarchiver.unarchiveObject(with: data) as? User {
+                return Variable.init(user)
+            }
         }
+        
         return Variable.init(nil)
     }
     
@@ -41,7 +44,8 @@ class UserManager {
         cachedUser = user
         
         if let currentUser = user.value {
-            UserDefaults.standard.set(currentUser, forKey: "currentUser")
+            let archivedObject = NSKeyedArchiver.archivedData(withRootObject: currentUser)
+            UserDefaults.standard.set(archivedObject, forKey: "currentUser")
         } else {
             UserDefaults.standard.removeObject(forKey: "currentUser")
         }
