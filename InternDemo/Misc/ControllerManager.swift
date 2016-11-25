@@ -33,15 +33,25 @@ class ControllerManager {
     }
     
     private func setLoginRootController() {
-        let loginController = LoginViewController()
-        
         let appDelegate = UIApplication.shared.delegate as? AppDelegate
         let window = appDelegate?.window
         
+        if window?.rootViewController?.isKind(of: LoginViewController.self) ?? false {
+            return
+        }
+        
+        let loginController = LoginViewController()
         window?.rootViewController = loginController
     }
     
     private func setDrawerRootController() {
+        let appDelegate = UIApplication.shared.delegate as? AppDelegate
+        let window = appDelegate?.window
+        
+        if window?.rootViewController?.isKind(of: DrawerController.self) ?? false {
+            return
+        }
+        
         var drawerController: DrawerController!
         
         let centerViewController = PostsViewController()
@@ -51,9 +61,6 @@ class ControllerManager {
         
         drawerController = DrawerController(centerViewController: mainNavigationController,
                                             leftDrawerViewController: leftViewController)
-        
-        let appDelegate = UIApplication.shared.delegate as? AppDelegate
-        let window = appDelegate?.window
 
         window?.rootViewController = drawerController
     }
