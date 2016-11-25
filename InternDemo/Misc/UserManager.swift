@@ -11,15 +11,13 @@ import RxSwift
 
 class UserManager {
     static let sharedManager = UserManager()
+
+    private var variableUser: Variable<User?>!
+    var observableUser: Observable<User?>!
     
-    private var cachedUser: Variable<User?>!
-    
-    var currentUser: Variable<User?> {
+    var currentUser: User? {
         get {
-            if cachedUser != nil && cachedUser.value == nil {
-                cachedUser = getCurrentUser()
-            }
-            return cachedUser
+            return variableUser.value
         }
         set {
             setCurrentUser(user: newValue)
@@ -27,23 +25,29 @@ class UserManager {
     }
     
     private init() {
-        cachedUser = getCurrentUser()
+        variableUser = Variable.init(getCurrentUser())
+        
+        observableUser = variableUser.asObservable()
+        .map({ (user) in
+            return user
+        })
     }
     
-    private func getCurrentUser() -> Variable<User?> {
+    private func getCurrentUser() -> User? {
+        var currentUser: User?
+        
         if let data = UserDefaults.standard.object(forKey: "currentUser") as? Data {
             if let user = NSKeyedUnarchiver.unarchiveObject(with: data) as? User {
-                return Variable.init(user)
+                currentUser = user
             }
         }
-        
-        return Variable.init(nil)
+        return currentUser
     }
     
-    private func setCurrentUser(user: Variable<User?>) {
-        cachedUser = user
+    private func setCurrentUser(user: User?) {
+        variableUser.value = currentUser
         
-        if let currentUser = user.value {
+        if let currentUser = user {
             let archivedObject = NSKeyedArchiver.archivedData(withRootObject: currentUser)
             UserDefaults.standard.set(archivedObject, forKey: "currentUser")
         } else {

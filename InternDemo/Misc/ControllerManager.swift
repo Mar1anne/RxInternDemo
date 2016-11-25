@@ -20,16 +20,16 @@ class ControllerManager {
     }
     
     private func addUserObservable() {
-        UserManager.sharedManager.currentUser
-            .asObservable()
-            .subscribe(onNext: { (user) in
-                if user == nil {
-                    self.setLoginRootController()
-                } else {
-                    self.setDrawerRootController()
-                }
-            }, onError: nil, onCompleted: nil, onDisposed: nil)
-            .addDisposableTo(disposeBag)
+        
+        UserManager.sharedManager.observableUser.subscribe(onNext: { (user) in
+            if user == nil {
+                self.setLoginRootController()
+            } else {
+                self.setDrawerRootController()
+            }
+
+        }, onError: nil, onCompleted: nil, onDisposed: nil)
+        .addDisposableTo(disposeBag)
     }
     
     private func setLoginRootController() {
@@ -42,12 +42,6 @@ class ControllerManager {
         
         let loginController = LoginViewController()
         window?.rootViewController = loginController
-        
-        // Test code
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
-            let user = User(JSON: ["id":"123456", "url":"test_url"])
-            UserManager.sharedManager.currentUser = Variable.init(user)
-        })
     }
     
     private func setDrawerRootController() {
