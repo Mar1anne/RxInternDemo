@@ -14,7 +14,8 @@ class MenuTableHeaderView: UIView {
 
     private let profileImageView = UIImageView()
     private let nameLabel = UILabel()
-    
+    private let disposeBag = DisposeBag()
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupView()
@@ -33,6 +34,8 @@ class MenuTableHeaderView: UIView {
         profileImageView.layer.borderWidth = 1
         profileImageView.clipsToBounds = true
         profileImageView.contentMode = .scaleAspectFill
+        
+        nameLabel.textAlignment = .center
         
         addSubview(profileImageView)
         addSubview(nameLabel)
@@ -53,7 +56,10 @@ class MenuTableHeaderView: UIView {
     }
     
     //MARK: - Methods
-    func bindTo(userObservable: Observable<User>) {
-        
+    func bindTo(userObservable: Observable<User?>) {
+        userObservable.subscribe(onNext: { (user) in
+            self.nameLabel.text = user?.username
+        }, onError: nil, onCompleted: nil, onDisposed: nil)
+            .addDisposableTo(disposeBag)
     }
 }

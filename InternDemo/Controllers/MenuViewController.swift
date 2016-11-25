@@ -14,13 +14,14 @@ import RxCocoa
 class MenuViewController: BaseViewController {
 
     let tableView = UITableView()
+    private let disposeBag = DisposeBag()
 
     let menuOptions = Observable.just(["My Posts", "Popular posts", "Sync", "Logout"]) // TODO: Change them runtime if other options are needed or changed
-    let disposeBag = DisposeBag()
-    
+        
     //MARK: - View Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         setupTableView()
     }
     
@@ -32,6 +33,7 @@ class MenuViewController: BaseViewController {
         
         let headerSize = CGSize(width: Constants.UI.screenWidth, height: Constants.UI.screenHeight*0.5)
         let headerView = MenuTableHeaderView(frame: CGRect(origin: CGPoint.zero, size: headerSize))
+        headerView.bindTo(userObservable: UserManager.sharedManager.observableUser!)
         
         tableView.isScrollEnabled = false
         tableView.tableFooterView = UIView()
