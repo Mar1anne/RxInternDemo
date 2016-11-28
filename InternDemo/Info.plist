@@ -29,19 +29,17 @@
 		<string>UIInterfaceOrientationPortrait</string>
 	</array>
 	<key>ImgurClientId</key>
-	<string>f5b227507cabeb4</string>
+	<string>cb2f4b95ca7c8e8</string>
 	<key>ImgurClientSecret</key>
-	<string>2115a3ee690a22dd8ec03058dcbc2027683dce90</string>
-	<key>CFBundleURLName</key>
-	<string>rx.interndemo</string>
+	<string>30dfa2ac16655a935ab10eb9aa60b6fcf204ce1f</string>
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>
 			<key>CFBundleURLName</key>
-			<string>rx.interndemo.com</string>
+			<string>ID.InternDemo</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>rx.interndemo</string>
+				<string>rxinterndemo</string>
 			</array>
 		</dict>
 	</array>
