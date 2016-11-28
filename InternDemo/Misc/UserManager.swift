@@ -10,7 +10,7 @@ import UIKit
 import RxSwift
 
 class UserManager {
-    static let sharedManager = UserManager()
+    static let shared = UserManager()
 
     private var variableUser: Variable<User?>!
     var observableUser: Observable<User?>!

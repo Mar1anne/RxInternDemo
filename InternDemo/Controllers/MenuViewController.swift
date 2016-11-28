@@ -33,7 +33,7 @@ class MenuViewController: BaseViewController {
         
         let headerSize = CGSize(width: Constants.UI.screenWidth, height: Constants.UI.screenHeight*0.5)
         let headerView = MenuTableHeaderView(frame: CGRect(origin: CGPoint.zero, size: headerSize))
-        headerView.bindTo(userObservable: UserManager.sharedManager.observableUser!)
+        headerView.bindTo(userObservable: UserManager.shared.observableUser!)
         
         tableView.isScrollEnabled = false
         tableView.tableFooterView = UIView()

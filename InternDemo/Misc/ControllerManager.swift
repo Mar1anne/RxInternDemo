@@ -12,7 +12,7 @@ import DrawerController
 
 class ControllerManager {
 
-    static let sharedManager = ControllerManager()
+    static let shared = ControllerManager()
     private let disposeBag = DisposeBag()
     
     init() {
@@ -21,7 +21,7 @@ class ControllerManager {
     
     private func addUserObservable() {
         
-        UserManager.sharedManager.observableUser.subscribe(onNext: { (user) in
+        UserManager.shared.observableUser.subscribe(onNext: { (user) in
             if user == nil {
                 self.setLoginRootController()
             } else {

@@ -21,8 +21,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let screenSize = UIScreen.main.bounds.size
         window = UIWindow(frame: CGRect(origin: CGPoint.zero, size: screenSize))
         
-        _ = UserManager.sharedManager
-        _ = ControllerManager.sharedManager
+        _ = UserManager.shared
+        _ = ControllerManager.shared
 
         return true
     }
