@@ -12,6 +12,7 @@
 		E122F8571DEC4C210036B0B5 /* NetworkDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E122F8561DEC4C210036B0B5 /* NetworkDataSource.swift */; };
 		E122F85D1DEC5B9D0036B0B5 /* APIRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E122F85C1DEC5B9D0036B0B5 /* APIRouter.swift */; };
 		E122F85F1DEC66EE0036B0B5 /* ConfigurationsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E122F85E1DEC66EE0036B0B5 /* ConfigurationsManager.swift */; };
+		E122F8611DECA2AB0036B0B5 /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = E122F8601DECA2AB0036B0B5 /* Token.swift */; };
 		E13063E41DE6FC7E002A942C /* MenuTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E13063E31DE6FC7E002A942C /* MenuTableHeaderView.swift */; };
 		E13063E71DE6FCFA002A942C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E13063E61DE6FCFA002A942C /* Constants.swift */; };
 		E13063E91DE712B7002A942C /* MenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E13063E81DE712B7002A942C /* MenuTableViewCell.swift */; };
@@ -35,6 +36,7 @@
 		E122F8561DEC4C210036B0B5 /* NetworkDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkDataSource.swift; sourceTree = "<group>"; };
 		E122F85C1DEC5B9D0036B0B5 /* APIRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIRouter.swift; sourceTree = "<group>"; };
 		E122F85E1DEC66EE0036B0B5 /* ConfigurationsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigurationsManager.swift; sourceTree = "<group>"; };
+		E122F8601DECA2AB0036B0B5 /* Token.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
 		E13063E31DE6FC7E002A942C /* MenuTableHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuTableHeaderView.swift; sourceTree = "<group>"; };
 		E13063E61DE6FCFA002A942C /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		E13063E81DE712B7002A942C /* MenuTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuTableViewCell.swift; sourceTree = "<group>"; };
@@ -117,6 +119,7 @@
 			children = (
 				E13063EA1DE71E51002A942C /* User.swift */,
 				E13063EC1DE71E59002A942C /* Post.swift */,
+				E122F8601DECA2AB0036B0B5 /* Token.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -303,6 +306,7 @@
 				E122F85D1DEC5B9D0036B0B5 /* APIRouter.swift in Sources */,
 				E13063EB1DE71E51002A942C /* User.swift in Sources */,
 				E13063EF1DE72783002A942C /* ControllerManager.swift in Sources */,
+				E122F8611DECA2AB0036B0B5 /* Token.swift in Sources */,
 				E13063F31DE74A77002A942C /* UserManager.swift in Sources */,
 				E1B30DC91DE492D3002B678D /* MenuViewController.swift in Sources */,
 				E13063ED1DE71E59002A942C /* Post.swift in Sources */,
