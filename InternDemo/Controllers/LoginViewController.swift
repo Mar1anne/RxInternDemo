@@ -7,12 +7,15 @@
 //
 
 import UIKit
+import RxCocoa
+import RxSwift
 
 class LoginViewController: BaseViewController {
 
     private let logoLabel = UILabel()
     private let loginButton = UIButton()
-
+    private let disposeBag = DisposeBag()
+    
     //MARK: - View setup
     override func setupViews() {
         super.setupViews()
@@ -27,6 +30,10 @@ class LoginViewController: BaseViewController {
         loginButton.clipsToBounds = true
         loginButton.setTitle("Login", for: .normal)
         loginButton.titleLabel?.font = UIFont.gothicBoldFontOfSize(size: 17)
+        
+        loginButton.rx.tap.subscribe { (event) in
+            self.onLogin()
+        }.addDisposableTo(disposeBag)
         
         view.addSubview(logoLabel)
         view.addSubview(loginButton)
@@ -50,6 +57,9 @@ class LoginViewController: BaseViewController {
     
     //MARK: - Login
     func onLogin() {
-        
+        let parameters = ["client_id": ConfigurationsManager.shared.imgurClientId,
+                          "response_type": "token"]
+        let urlRequest = APIRouter.Authenticate(parameters as [String : AnyObject])
+        UIApplication.shared.openURL(urlRequest.urlRequest!.url!)
     }
 }

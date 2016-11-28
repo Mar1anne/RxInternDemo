@@ -10,6 +10,7 @@
 		6C66AB1EC3BB638940A1908D /* Pods_InternDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2024B1A67978F32B808194A6 /* Pods_InternDemo.framework */; };
 		E122E7F21DE86A090010E720 /* UIFont+CustomFonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = E122E7F11DE86A090010E720 /* UIFont+CustomFonts.swift */; };
 		E122F8571DEC4C210036B0B5 /* NetworkDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E122F8561DEC4C210036B0B5 /* NetworkDataSource.swift */; };
+		E122F85D1DEC5B9D0036B0B5 /* APIRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E122F85C1DEC5B9D0036B0B5 /* APIRouter.swift */; };
 		E122F85F1DEC66EE0036B0B5 /* ConfigurationsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E122F85E1DEC66EE0036B0B5 /* ConfigurationsManager.swift */; };
 		E13063E41DE6FC7E002A942C /* MenuTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E13063E31DE6FC7E002A942C /* MenuTableHeaderView.swift */; };
 		E13063E71DE6FCFA002A942C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E13063E61DE6FCFA002A942C /* Constants.swift */; };
@@ -32,6 +33,7 @@
 		8A0AEFCC571C0B4B7C873F65 /* Pods-InternDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InternDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-InternDemo/Pods-InternDemo.release.xcconfig"; sourceTree = "<group>"; };
 		E122E7F11DE86A090010E720 /* UIFont+CustomFonts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIFont+CustomFonts.swift"; sourceTree = "<group>"; };
 		E122F8561DEC4C210036B0B5 /* NetworkDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkDataSource.swift; sourceTree = "<group>"; };
+		E122F85C1DEC5B9D0036B0B5 /* APIRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIRouter.swift; sourceTree = "<group>"; };
 		E122F85E1DEC66EE0036B0B5 /* ConfigurationsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigurationsManager.swift; sourceTree = "<group>"; };
 		E13063E31DE6FC7E002A942C /* MenuTableHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuTableHeaderView.swift; sourceTree = "<group>"; };
 		E13063E61DE6FCFA002A942C /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -123,6 +125,7 @@
 			isa = PBXGroup;
 			children = (
 				E122F8561DEC4C210036B0B5 /* NetworkDataSource.swift */,
+				E122F85C1DEC5B9D0036B0B5 /* APIRouter.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -297,6 +300,7 @@
 				E13063E91DE712B7002A942C /* MenuTableViewCell.swift in Sources */,
 				E1B30DCC1DE49387002B678D /* BaseViewController.swift in Sources */,
 				E122F85F1DEC66EE0036B0B5 /* ConfigurationsManager.swift in Sources */,
+				E122F85D1DEC5B9D0036B0B5 /* APIRouter.swift in Sources */,
 				E13063EB1DE71E51002A942C /* User.swift in Sources */,
 				E13063EF1DE72783002A942C /* ControllerManager.swift in Sources */,
 				E13063F31DE74A77002A942C /* UserManager.swift in Sources */,
