@@ -29,9 +29,22 @@
 		<string>UIInterfaceOrientationPortrait</string>
 	</array>
 	<key>ImgurClientId</key>
-	<string>cad3120dc93ab4b</string>
+	<string>f5b227507cabeb4</string>
 	<key>ImgurClientSecret</key>
-	<string>25bea05d3759e487f408a05bbdc3d39767888f1c</string>
+	<string>2115a3ee690a22dd8ec03058dcbc2027683dce90</string>
+	<key>CFBundleURLName</key>
+	<string>rx.interndemo</string>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleURLName</key>
+			<string>rx.interndemo.com</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>rx.interndemo</string>
+			</array>
+		</dict>
+	</array>
 	<key>UISupportedInterfaceOrientations~ipad</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
