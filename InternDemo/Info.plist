@@ -28,6 +28,10 @@
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
 	</array>
+	<key>ImgurClientId</key>
+	<string>cad3120dc93ab4b</string>
+	<key>ImgurClientSecret</key>
+	<string>25bea05d3759e487f408a05bbdc3d39767888f1c</string>
 	<key>UISupportedInterfaceOrientations~ipad</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
