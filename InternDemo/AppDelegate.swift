@@ -56,20 +56,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationDidBecomeActive(_ application: UIApplication) { }
 
     func applicationWillTerminate(_ application: UIApplication) { }
-    
-    func setupWindowAndRootController() {
-        
-        
-        let centerViewController = PostsViewController()
-        let leftViewController = MenuViewController()
-        
-        let mainNavigationController = UINavigationController(rootViewController: centerViewController)
-        
-        drawerController = DrawerController(centerViewController: mainNavigationController,
-                                            leftDrawerViewController: leftViewController)
-        
-        window?.rootViewController = drawerController
-    }
 
 }
-

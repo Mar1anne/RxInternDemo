@@ -55,7 +55,7 @@ class ControllerManager {
         var drawerController: DrawerController!
         
         let centerViewController = PostsViewController()
-        let leftViewController = MenuViewController()
+        let leftViewController = MenuViewController(withPresenter: MenuViewPresenterImpl())
         
         let mainNavigationController = UINavigationController(rootViewController: centerViewController)
         

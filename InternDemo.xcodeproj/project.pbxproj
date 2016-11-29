@@ -22,11 +22,12 @@
 		E13063EF1DE72783002A942C /* ControllerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E13063EE1DE72783002A942C /* ControllerManager.swift */; };
 		E13063F11DE727A5002A942C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E13063F01DE727A5002A942C /* LoginViewController.swift */; };
 		E13063F31DE74A77002A942C /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E13063F21DE74A77002A942C /* UserManager.swift */; };
-		E1B30DC91DE492D3002B678D /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B30DC41DE492D3002B678D /* MenuViewController.swift */; };
 		E1B30DCA1DE492D3002B678D /* PostsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B30DC51DE492D3002B678D /* PostsViewController.swift */; };
 		E1B30DCC1DE49387002B678D /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B30DCB1DE49387002B678D /* BaseViewController.swift */; };
 		E1B7A9A01DE33AFA00EBFEA5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B7A99F1DE33AFA00EBFEA5 /* AppDelegate.swift */; };
 		E1B7A9A71DE33AFA00EBFEA5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E1B7A9A61DE33AFA00EBFEA5 /* Assets.xcassets */; };
+		E1EAA3F91DEDDBC9004FDA39 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1EAA3F81DEDDBC9004FDA39 /* MenuViewController.swift */; };
+		E1EAA3FB1DEDDBDE004FDA39 /* MenuViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1EAA3FA1DEDDBDE004FDA39 /* MenuViewPresenter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,13 +48,14 @@
 		E13063EE1DE72783002A942C /* ControllerManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ControllerManager.swift; sourceTree = "<group>"; };
 		E13063F01DE727A5002A942C /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		E13063F21DE74A77002A942C /* UserManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
-		E1B30DC41DE492D3002B678D /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		E1B30DC51DE492D3002B678D /* PostsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostsViewController.swift; sourceTree = "<group>"; };
 		E1B30DCB1DE49387002B678D /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		E1B7A99C1DE33AFA00EBFEA5 /* InternDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InternDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1B7A99F1DE33AFA00EBFEA5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E1B7A9A61DE33AFA00EBFEA5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E1B7A9AB1DE33AFA00EBFEA5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E1EAA3F81DEDDBC9004FDA39 /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
+		E1EAA3FA1DEDDBDE004FDA39 /* MenuViewPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewPresenter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,7 +111,7 @@
 		E1B30DC31DE492D3002B678D /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				E1B30DC41DE492D3002B678D /* MenuViewController.swift */,
+				E1EAA3F71DEDDBC9004FDA39 /* Menu */,
 				E1B30DC51DE492D3002B678D /* PostsViewController.swift */,
 				E1B30DCB1DE49387002B678D /* BaseViewController.swift */,
 				E13063F01DE727A5002A942C /* LoginViewController.swift */,
@@ -176,6 +178,15 @@
 				E1B7A9AB1DE33AFA00EBFEA5 /* Info.plist */,
 			);
 			path = InternDemo;
+			sourceTree = "<group>";
+		};
+		E1EAA3F71DEDDBC9004FDA39 /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				E1EAA3F81DEDDBC9004FDA39 /* MenuViewController.swift */,
+				E1EAA3FA1DEDDBDE004FDA39 /* MenuViewPresenter.swift */,
+			);
+			path = Menu;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -308,12 +319,13 @@
 				E122F85F1DEC66EE0036B0B5 /* ConfigurationsManager.swift in Sources */,
 				E122F85D1DEC5B9D0036B0B5 /* APIRouter.swift in Sources */,
 				E13063EB1DE71E51002A942C /* User.swift in Sources */,
+				E1EAA3FB1DEDDBDE004FDA39 /* MenuViewPresenter.swift in Sources */,
 				E13063EF1DE72783002A942C /* ControllerManager.swift in Sources */,
 				E122F8611DECA2AB0036B0B5 /* Token.swift in Sources */,
 				E122F85B1DEC5A210036B0B5 /* TokenManager.swift in Sources */,
 				E13063F31DE74A77002A942C /* UserManager.swift in Sources */,
-				E1B30DC91DE492D3002B678D /* MenuViewController.swift in Sources */,
 				E13063ED1DE71E59002A942C /* Post.swift in Sources */,
+				E1EAA3F91DEDDBC9004FDA39 /* MenuViewController.swift in Sources */,
 				E122E7F21DE86A090010E720 /* UIFont+CustomFonts.swift in Sources */,
 				E1B7A9A01DE33AFA00EBFEA5 /* AppDelegate.swift in Sources */,
 				E13063E71DE6FCFA002A942C /* Constants.swift in Sources */,
