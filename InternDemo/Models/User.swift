@@ -20,4 +20,5 @@ class User: NSObject, Mappable {
         id <- map[Network.User.accountId]
         username <- map[Network.User.username]
     }
+    
 }

@@ -70,4 +70,5 @@ class LoginViewController: BaseViewController {
         let urlRequest = APIRouter.Authenticate(parameters as [String : AnyObject])
         UIApplication.shared.openURL(urlRequest.urlRequest!.url!)
     }
+    
 }

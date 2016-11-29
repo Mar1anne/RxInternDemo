@@ -32,4 +32,5 @@ class BaseViewController: UIViewController {
     func setupConstraints() {
         
     }
+    
 }

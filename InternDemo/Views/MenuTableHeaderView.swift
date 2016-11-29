@@ -42,7 +42,6 @@ class MenuTableHeaderView: UIView {
     }
     
     private func setupConstraints() {
-
         profileImageView.snp.makeConstraints { (make) in
             make.center.equalTo(self)
             make.width.height.equalTo(self.snp.width).multipliedBy(0.5)

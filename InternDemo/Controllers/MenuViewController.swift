@@ -59,4 +59,5 @@ class MenuViewController: BaseViewController {
         }
         .addDisposableTo(disposeBag)
     }
+    
 }

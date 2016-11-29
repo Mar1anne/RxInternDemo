@@ -21,4 +21,5 @@ class Token: NSObject, Mappable {
         refreshToken <- map[Network.Token.refreshToken]
         expiresIn <- map[Network.Token.expiresIn]
     }
+    
 }
