@@ -33,27 +33,18 @@ class UserManager {
         })
     }
     
-    private func getCurrentUser() -> User? {
-        var currentUser: User?
-        
-        if let data = UserDefaults.standard.object(forKey: "currentUser") as? Data {
-            if let user = NSKeyedUnarchiver.unarchiveObject(with: data) as? User {
-                currentUser = user
-            }
+    private func getCurrentUser() -> User? {        
+        if let json = UserDefaults.standard.object(forKey: "current_user") as? String {
+            return User(JSONString: json)
         }
-        return currentUser
+        return nil
     }
     
     private func setCurrentUser(user: User?) {
         variableUser.value = user
         
-        if let currentUser = user {
-            let archivedObject = NSKeyedArchiver.archivedData(withRootObject: currentUser)
-            UserDefaults.standard.set(archivedObject, forKey: "currentUser")
-        } else {
-            UserDefaults.standard.removeObject(forKey: "currentUser")
-        }
-        
+        let json = user?.toJSONString(prettyPrint: true)
+        UserDefaults.standard.set(json, forKey: "current_user")
         UserDefaults.standard.synchronize()
     }
 }

@@ -9,7 +9,7 @@
 import UIKit
 import ObjectMapper
 
-class User: NSObject, Mappable, NSCoding {
+class User: NSObject, Mappable {
 
     var id: String!
     var username: String!
@@ -20,15 +20,4 @@ class User: NSObject, Mappable, NSCoding {
         id <- map[Network.User.accountId]
         username <- map[Network.User.username]
     }
-    
-    required init?(coder aDecoder: NSCoder) {
-        id = aDecoder.decodeObject(forKey: Network.User.accountId) as? String
-        username = aDecoder.decodeObject(forKey: Network.User.username) as? String
-    }
-    
-    func encode(with aCoder: NSCoder) {
-        aCoder.encode(id, forKey: Network.User.accountId)
-        aCoder.encode(username, forKey: Network.User.username)
-    }
-    
 }

@@ -41,7 +41,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         .parseParameters(parameters: urlParams)
         .subscribe(onNext: { (user, token) in
             UserManager.shared.currentUser = user
-            
         }, onError: nil, onCompleted: nil, onDisposed: nil)
         .dispose()
         

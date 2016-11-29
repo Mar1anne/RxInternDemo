@@ -15,8 +15,8 @@ class TokenManager: NSObject {
 
     static let shared = TokenManager()
     
-    private var cachedToken: String?
-    var accessToken: String? {
+    private var cachedToken: Token?
+    var accessToken: Token? {
         get {
             return cachedToken ?? getAccessToken()
         }
@@ -48,14 +48,15 @@ class TokenManager: NSObject {
         })
     }
     
-    private func getAccessToken() -> String? {
-        return UserDefaults.standard.object(forKey: Network.Token.accessToken) as? String
+    private func getAccessToken() -> Token? {
+        let json = UserDefaults.standard.object(forKey: Network.Token.accessToken) as? String
+        guard let _ = json else { return nil }
+        return Token(JSONString: json!)
     }
     
-    private func setAccessToken(_ token: String?) {
-        guard let _ = token else { return }
-        
-        UserDefaults.standard.set(token, forKey: Network.Token.accessToken)
+    private func setAccessToken(_ token: Token?) {
+        let json = token?.toJSONString(prettyPrint: true)
+        UserDefaults.standard.set(json, forKey: Network.Token.accessToken)
         UserDefaults.standard.synchronize()
     }
 }

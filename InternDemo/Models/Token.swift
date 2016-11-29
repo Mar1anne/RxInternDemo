@@ -9,7 +9,7 @@
 import UIKit
 import ObjectMapper
 
-class Token: NSObject, Mappable, NSCoding {
+class Token: NSObject, Mappable {
     var accessToken: String!
     var refreshToken: String!
     var expiresIn: String!
@@ -21,17 +21,4 @@ class Token: NSObject, Mappable, NSCoding {
         refreshToken <- map[Network.Token.refreshToken]
         expiresIn <- map[Network.Token.expiresIn]
     }
-    
-    required init?(coder aDecoder: NSCoder) {
-        accessToken = aDecoder.decodeObject(forKey: Network.Token.accessToken) as? String
-        refreshToken = aDecoder.decodeObject(forKey: Network.Token.refreshToken) as? String
-        expiresIn = aDecoder.decodeDouble(forKey: Network.Token.expiresIn) as? String
-    }
-    
-    func encode(with aCoder: NSCoder) {
-        aCoder.encode(accessToken, forKey: Network.Token.accessToken)
-        aCoder.encode(refreshToken, forKey: Network.Token.refreshToken)
-        aCoder.encode(expiresIn, forKey: Network.Token.expiresIn)
-    }
-    
 }
