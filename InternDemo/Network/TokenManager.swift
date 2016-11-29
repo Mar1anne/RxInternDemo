@@ -14,7 +14,16 @@ class TokenManager: NSObject {
 
     static let shared = TokenManager()
     
-    var accessToken: String?
+    private var cachedToken: String?
+    var accessToken: String? {
+        get {
+            return cachedToken ?? getAccessToken()
+        }
+        set {
+            cachedToken = newValue
+            setAccessToken(newValue)
+        }
+    }
 
     func parseParameters(parameters: [String]) -> Observable<(User, Token)> {
         return Observable.create({ (observer) -> Disposable in
@@ -35,5 +44,16 @@ class TokenManager: NSObject {
             
             return Disposables.create()
         })
+    }
+    
+    private func getAccessToken() -> String? {
+        return UserDefaults.standard.object(forKey: Network.Token.accessToken) as? String
+    }
+    
+    private func setAccessToken(_ token: String?) {
+        guard let _ = token else { return }
+        
+        UserDefaults.standard.set(token, forKey: Network.Token.accessToken)
+        UserDefaults.standard.synchronize()
     }
 }

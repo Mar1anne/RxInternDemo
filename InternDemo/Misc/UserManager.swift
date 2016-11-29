@@ -53,5 +53,7 @@ class UserManager {
         } else {
             UserDefaults.standard.removeObject(forKey: "currentUser")
         }
+        
+        UserDefaults.standard.synchronize()
     }
 }
