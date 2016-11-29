@@ -33,7 +33,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.makeKeyAndVisible()
         return true
     }
-
+    
+    func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
+        let urlParams = url.absoluteString.replacingOccurrences(of: url.scheme! + "://#", with: "").components(separatedBy: "&")
+        
+        TokenManager.shared
+        .parseParameters(parameters: urlParams)
+        .subscribe(onNext: { (user, token) in
+            UserManager.shared.currentUser = user
+            
+        }, onError: nil, onCompleted: nil, onDisposed: nil)
+        .dispose()
+        
+        return true
+    }
+    
     func applicationWillResignActive(_ application: UIApplication) { }
 
     func applicationDidEnterBackground(_ application: UIApplication) { }

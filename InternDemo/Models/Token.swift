@@ -17,21 +17,21 @@ class Token: NSObject, Mappable, NSCoding {
     required init?(map: Map) { }
     
     func mapping(map: Map) {
-        accessToken <- map["access_token"]
-        refreshToken <- map["refresh_token"]
-        expiresIn <- map["expires_in"]
+        accessToken <- map[Network.Token.accessToken]
+        refreshToken <- map[Network.Token.refreshToken]
+        expiresIn <- map[Network.Token.expiresIn]
     }
     
     required init?(coder aDecoder: NSCoder) {
-        accessToken = aDecoder.decodeObject(forKey: "access_token") as? String
-        refreshToken = aDecoder.decodeObject(forKey: "refresh_token") as? String
-        expiresIn = aDecoder.decodeDouble(forKey: "expires_in")
+        accessToken = aDecoder.decodeObject(forKey: Network.Token.accessToken) as? String
+        refreshToken = aDecoder.decodeObject(forKey: Network.Token.refreshToken) as? String
+        expiresIn = aDecoder.decodeDouble(forKey: Network.Token.expiresIn)
     }
     
     func encode(with aCoder: NSCoder) {
-        aCoder.encode(accessToken, forKey: "access_token")
-        aCoder.encode(refreshToken, forKey: "refresh_token")
-        aCoder.encode(expiresIn, forKey: "expires_in")
+        aCoder.encode(accessToken, forKey: Network.Token.accessToken)
+        aCoder.encode(refreshToken, forKey: Network.Token.refreshToken)
+        aCoder.encode(expiresIn, forKey: Network.Token.expiresIn)
     }
     
 }

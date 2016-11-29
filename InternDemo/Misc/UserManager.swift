@@ -45,7 +45,7 @@ class UserManager {
     }
     
     private func setCurrentUser(user: User?) {
-        variableUser.value = currentUser
+        variableUser.value = user
         
         if let currentUser = user {
             let archivedObject = NSKeyedArchiver.archivedData(withRootObject: currentUser)

@@ -17,18 +17,18 @@ class User: NSObject, Mappable, NSCoding {
     required init?(map: Map) { }
     
     func mapping(map: Map) {
-        id <- map["account_id"]
-        username <- map["account_username"]
+        id <- map[Network.User.accountId]
+        username <- map[Network.User.username]
     }
     
     required init?(coder aDecoder: NSCoder) {
-        id = aDecoder.decodeObject(forKey: "account_id") as? Int
-        username = aDecoder.decodeObject(forKey: "account_username") as? String
+        id = aDecoder.decodeObject(forKey: Network.User.accountId) as? Int
+        username = aDecoder.decodeObject(forKey: Network.User.username) as? String
     }
     
     func encode(with aCoder: NSCoder) {
-        aCoder.encode(id, forKey: "account_id")
-        aCoder.encode(username, forKey: "account_username")
+        aCoder.encode(id, forKey: Network.User.accountId)
+        aCoder.encode(username, forKey: Network.User.username)
     }
     
 }

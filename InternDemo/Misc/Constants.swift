@@ -14,3 +14,16 @@ struct Constants {
         static let screenWidth: CGFloat = UIScreen.main.bounds.size.width
     }
 }
+
+struct Network {
+    struct Token {
+        static let accessToken = "access_token"
+        static let refreshToken = "refresh_token"
+        static let expiresIn = "expires_in"
+    }
+    
+    struct User {
+        static let accountId = "account_id"
+        static let username = "account_username"
+    }
+}
