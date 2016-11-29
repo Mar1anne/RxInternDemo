@@ -14,6 +14,7 @@ class LoginViewController: BaseViewController {
 
     private let logoLabel = UILabel()
     private let loginButton = UIButton()
+    private let loginImage = UIImageView()
     private let disposeBag = DisposeBag()
     
     //MARK: - View setup
@@ -22,10 +23,12 @@ class LoginViewController: BaseViewController {
         
         view.backgroundColor = .white
         
+        loginImage.image = UIImage(named: "login_background")
+        
         logoLabel.text = "imgur Demo"
         logoLabel.font = UIFont.gothicBoldFontOfSize(size: 37)
         
-        loginButton.backgroundColor = .green
+        loginButton.backgroundColor = .black
         loginButton.layer.cornerRadius = 20
         loginButton.clipsToBounds = true
         loginButton.setTitle("Login", for: .normal)
@@ -35,6 +38,7 @@ class LoginViewController: BaseViewController {
             self.onLogin()
         }.addDisposableTo(disposeBag)
         
+        view.addSubview(loginImage)
         view.addSubview(logoLabel)
         view.addSubview(loginButton)
     }
@@ -44,14 +48,18 @@ class LoginViewController: BaseViewController {
         
         logoLabel.snp.makeConstraints { (make) in
             make.centerX.equalTo(view)
-            make.centerY.equalTo(view).offset(-30)
+            make.top.equalTo(view).offset(100)
         }
         
         loginButton.snp.makeConstraints { (make) in
-            make.top.equalTo(logoLabel.snp.bottom).offset(30)
+            make.bottom.equalTo(view).offset(-50)
             make.width.equalTo(view).multipliedBy(0.6)
             make.centerX.equalTo(view)
             make.height.equalTo(40)
+        }
+        
+        loginImage.snp.makeConstraints { (make) in
+            make.edges.equalTo(view)
         }
     }
     
