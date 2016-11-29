@@ -12,7 +12,7 @@ import ObjectMapper
 class Token: NSObject, Mappable, NSCoding {
     var accessToken: String!
     var refreshToken: String!
-    var expiresIn: Double!
+    var expiresIn: String!
     
     required init?(map: Map) { }
     
@@ -25,7 +25,7 @@ class Token: NSObject, Mappable, NSCoding {
     required init?(coder aDecoder: NSCoder) {
         accessToken = aDecoder.decodeObject(forKey: Network.Token.accessToken) as? String
         refreshToken = aDecoder.decodeObject(forKey: Network.Token.refreshToken) as? String
-        expiresIn = aDecoder.decodeDouble(forKey: Network.Token.expiresIn)
+        expiresIn = aDecoder.decodeDouble(forKey: Network.Token.expiresIn) as? String
     }
     
     func encode(with aCoder: NSCoder) {

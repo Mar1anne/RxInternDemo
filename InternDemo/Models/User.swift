@@ -11,7 +11,7 @@ import ObjectMapper
 
 class User: NSObject, Mappable, NSCoding {
 
-    var id: Int!
+    var id: String!
     var username: String!
         
     required init?(map: Map) { }
@@ -22,7 +22,7 @@ class User: NSObject, Mappable, NSCoding {
     }
     
     required init?(coder aDecoder: NSCoder) {
-        id = aDecoder.decodeObject(forKey: Network.User.accountId) as? Int
+        id = aDecoder.decodeObject(forKey: Network.User.accountId) as? String
         username = aDecoder.decodeObject(forKey: Network.User.username) as? String
     }
     

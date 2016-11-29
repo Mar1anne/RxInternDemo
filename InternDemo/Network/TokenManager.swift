@@ -9,6 +9,7 @@
 import UIKit
 import Alamofire
 import RxSwift
+import ObjectMapper
 
 class TokenManager: NSObject {
 
@@ -34,7 +35,8 @@ class TokenManager: NSObject {
                 jsonParams[paramString[0]] = paramString[1] as AnyObject
             }
             
-            if let user = User(JSON: jsonParams), let token = Token(JSON: jsonParams) {
+            let data = Mapper<User>().map(JSON: jsonParams)
+            if let user = data, let token = Token(JSON: jsonParams) {
                 observer.onNext((user, token))
                 observer.onCompleted()
             } else {
