@@ -18,7 +18,10 @@ class TokenManager: NSObject {
     private var cachedToken: Token?
     var accessToken: Token? {
         get {
-            return cachedToken ?? getAccessToken()
+            if (cachedToken == nil) {
+                cachedToken = getAccessToken()
+            }
+            return cachedToken
         }
         set {
             cachedToken = newValue
