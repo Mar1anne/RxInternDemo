@@ -72,20 +72,24 @@ class MenuViewController: BaseViewController, MenuView {
             .itemSelected
             .subscribe { [weak self] (indexPath) in
                 if let cellIndexPath = indexPath.element {
+                    
                     self?.tableView.deselectRow(at: cellIndexPath, animated: false)
-                    self?.presenter.onMenuOptionSelected(atIndex: cellIndexPath.row)
+                    let cell = self?.tableView.cellForRow(at: cellIndexPath) as? MenuTableViewCell
+                    
+                    guard let menuItem = cell?.menuItem else { return }
+                    self?.presenter.onMenuOptionSelected(menuItem)
                 }
                 self?.evo_drawerController?.toggleLeftDrawerSide(animated: true, completion: nil)
             }.addDisposableTo(disposeBag)
     }
     
     //MARK: - MenuView methods
-    func setMenuOptions(_ options: Observable<[String]>) {
+    func setMenuOptions(_ options: Observable<[MenuItem]>) {
         options
             .bindTo(tableView.rx.items(cellIdentifier: MenuTableViewCell.identifier,
                                        cellType: MenuTableViewCell.self))
             { (row, element, cell) in
-                cell.textLabel?.text = element
+                cell.menuItem = element
             }
             .addDisposableTo(disposeBag)
     }

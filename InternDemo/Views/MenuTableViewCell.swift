@@ -10,6 +10,12 @@ import UIKit
 
 class MenuTableViewCell: UITableViewCell {
 
+    var menuItem: MenuItem? {
+        didSet {
+            self.textLabel?.text = menuItem?.description
+        }
+    }
+    
     static var identifier: String {
         return NSStringFromClass(self) + ".identifier"
     }
