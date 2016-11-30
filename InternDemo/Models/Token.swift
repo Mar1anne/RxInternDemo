@@ -10,6 +10,7 @@ import UIKit
 import ObjectMapper
 
 class Token: NSObject, Mappable {
+    
     var accessToken: String!
     var refreshToken: String!
     var expiresIn: String!

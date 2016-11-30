@@ -10,6 +10,7 @@ import UIKit
 import Alamofire
 
 enum APIRouter: URLRequestConvertible {
+    
     case Authenticate([String: AnyObject])
     
     var path: String {

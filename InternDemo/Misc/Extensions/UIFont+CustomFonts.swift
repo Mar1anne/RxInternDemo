@@ -9,6 +9,7 @@
 import UIKit
 
 extension UIFont {
+    
     class func gothicRegularFontOfSize(size: CGFloat) -> UIFont? {
         return UIFont(name: "AppleSDGothicNeo-Regular", size: size)
     }
@@ -16,4 +17,5 @@ extension UIFont {
     class func gothicBoldFontOfSize(size: CGFloat) -> UIFont? {
         return UIFont(name: "AppleSDGothicNeo-Bold", size: size)
     }
+    
 }

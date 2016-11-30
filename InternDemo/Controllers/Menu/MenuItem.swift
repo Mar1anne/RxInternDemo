@@ -16,6 +16,7 @@ enum MenuItemType: Int {
 }
 
 struct MenuItem: CustomStringConvertible {
+    
     var type: MenuItemType
     
     init(type: MenuItemType) {
@@ -34,4 +35,5 @@ struct MenuItem: CustomStringConvertible {
             return "Settings"
         }
     }
+    
 }

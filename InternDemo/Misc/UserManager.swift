@@ -10,6 +10,7 @@ import UIKit
 import RxSwift
 
 class UserManager {
+    
     static let shared = UserManager()
 
     private var variableUser: Variable<User?>!
@@ -47,4 +48,5 @@ class UserManager {
         UserDefaults.standard.set(json, forKey: "current_user")
         UserDefaults.standard.synchronize()
     }
+    
 }

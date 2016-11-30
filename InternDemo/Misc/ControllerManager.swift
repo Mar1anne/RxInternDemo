@@ -20,7 +20,6 @@ class ControllerManager {
     }
     
     private func addUserObservable() {
-        
         UserManager.shared.observableUser.subscribe(onNext: { (user) in
             if user == nil {
                 self.setLoginRootController()

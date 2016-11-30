@@ -59,4 +59,5 @@ class TokenManager: NSObject {
         UserDefaults.standard.set(json, forKey: Network.Token.accessToken)
         UserDefaults.standard.synchronize()
     }
+    
 }

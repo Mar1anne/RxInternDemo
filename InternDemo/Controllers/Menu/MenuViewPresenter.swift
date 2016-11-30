@@ -14,6 +14,7 @@ protocol MenuView: class {
 }
 
 protocol MenuViewPresenter: class {
+    
     func attachView(_ view: MenuView)
     func detachView(_ view: MenuView)
     
