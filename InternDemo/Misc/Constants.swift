@@ -30,4 +30,9 @@ struct Network {
         static let username = "account_username"
     }
     
+    struct Posts {
+        static let section = "section"
+        static let page = "page"
+    }
+    
 }

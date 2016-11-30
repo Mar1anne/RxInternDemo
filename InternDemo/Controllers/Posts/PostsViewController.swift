@@ -7,12 +7,14 @@
 //
 
 import UIKit
+import RxSwift
 
 class PostsViewController: BaseViewController, PostsView {
 
-    // TODO: Add collection view
+    private var collectionView: UICollectionView!
     
     private var presenter: PostsPresenter!
+    private let disposeBag = DisposeBag()
     
     init(withPresenter presenter: PostsPresenter) {
         super.init()
@@ -37,14 +39,26 @@ class PostsViewController: BaseViewController, PostsView {
     override func setupViews() {
         super.setupViews()
         
+        addMenuButton()
+        
         view.backgroundColor = .lightGray
         navigationController?.navigationBar.isTranslucent = false
-        
-        addMenuButton()
+
+        collectionView = UICollectionView(frame: CGRect.zero,
+                                          collectionViewLayout: UICollectionViewFlowLayout())
+        collectionView.register(PostCollectionViewCell.self,
+                                forCellWithReuseIdentifier: PostCollectionViewCell.cellIdentifier)
+        collectionView.backgroundColor = .yellow
+
+        view.addSubview(collectionView)
     }
     
     override func setupConstraints() {
         super.setupConstraints()
+        
+        collectionView.snp.makeConstraints { (make) in
+            make.edges.equalTo(view)
+        }
     }
     
     private func addMenuButton() {
@@ -60,4 +74,30 @@ class PostsViewController: BaseViewController, PostsView {
         evo_drawerController?.toggleLeftDrawerSide(animated: true, completion: nil)
     }
     
+    // MARK: - PostsView method
+    func bindPosts(_ posts: Observable<[Post]>?) {
+        posts?.bindTo(collectionView.rx.items(cellIdentifier: PostCollectionViewCell.cellIdentifier,
+                                              cellType: PostCollectionViewCell.self)) { (row, element, cell) in
+            
+        }.addDisposableTo(disposeBag)
+    }
+    
+    func showLoading(_ show: Bool) {
+        print("Should show loading: \(show)")
+    }
+}
+
+extension PostsViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
+        return CGSize(width: 50, height: 50)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 10
+    }
 }

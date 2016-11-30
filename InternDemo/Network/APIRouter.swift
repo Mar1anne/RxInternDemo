@@ -11,12 +11,15 @@ import Alamofire
 
 enum APIRouter: URLRequestConvertible {
     
-    case Authenticate([String: AnyObject])
+    case Authenticate([String: Any])
+    case Posts(pageNumber: Int, type: String)
     
     var path: String {
         switch self {
         case .Authenticate:
             return "https://api.imgur.com/oauth2/authorize"
+        case .Posts(let page,let type):
+            return "https://api.imgur.com/3/gallery/\(type)/\(page)"
         }
     }
     
@@ -24,12 +27,15 @@ enum APIRouter: URLRequestConvertible {
         switch self {
         case .Authenticate:
             return .get
+        case .Posts:
+            return .get
         }
     }
     
-    var parameters: [String: AnyObject]? {
+    var parameters: [String: Any]? {
         switch self {
         case .Authenticate(let parameters): return parameters
+        case .Posts(_, _): return nil
         }
     }
     
@@ -44,6 +50,15 @@ enum APIRouter: URLRequestConvertible {
         urlRequest.httpMethod = method.rawValue
         urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
         urlRequest.setValue(ConfigurationsManager.shared.imgurClientId, forHTTPHeaderField: "client_id")
+        
+        switch self {
+        case .Authenticate:
+            // do nothing
+            break
+        default:
+            // TODO: refresh token if needed
+            urlRequest.setValue("Bearer " + TokenManager.shared.accessToken!.accessToken, forHTTPHeaderField: "Authorization")
+        }
         
         return try! encoding.encode(urlRequest, with: parameters)
     }
