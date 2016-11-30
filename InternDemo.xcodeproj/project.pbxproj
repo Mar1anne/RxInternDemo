@@ -22,11 +22,12 @@
 		E13063EF1DE72783002A942C /* ControllerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E13063EE1DE72783002A942C /* ControllerManager.swift */; };
 		E13063F11DE727A5002A942C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E13063F01DE727A5002A942C /* LoginViewController.swift */; };
 		E13063F31DE74A77002A942C /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E13063F21DE74A77002A942C /* UserManager.swift */; };
-		E1B30DCA1DE492D3002B678D /* PostsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B30DC51DE492D3002B678D /* PostsViewController.swift */; };
 		E1B30DCC1DE49387002B678D /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B30DCB1DE49387002B678D /* BaseViewController.swift */; };
 		E1B7A9A01DE33AFA00EBFEA5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B7A99F1DE33AFA00EBFEA5 /* AppDelegate.swift */; };
 		E1B7A9A71DE33AFA00EBFEA5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E1B7A9A61DE33AFA00EBFEA5 /* Assets.xcassets */; };
 		E1D78E461DEEE78900DE0984 /* MenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D78E451DEEE78900DE0984 /* MenuItem.swift */; };
+		E1D78E4B1DEEF62400DE0984 /* PostsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D78E4A1DEEF62400DE0984 /* PostsViewController.swift */; };
+		E1D78E4D1DEEF6AA00DE0984 /* PostsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D78E4C1DEEF6AA00DE0984 /* PostsPresenter.swift */; };
 		E1EAA3F91DEDDBC9004FDA39 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1EAA3F81DEDDBC9004FDA39 /* MenuViewController.swift */; };
 		E1EAA3FB1DEDDBDE004FDA39 /* MenuViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1EAA3FA1DEDDBDE004FDA39 /* MenuViewPresenter.swift */; };
 /* End PBXBuildFile section */
@@ -49,13 +50,14 @@
 		E13063EE1DE72783002A942C /* ControllerManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ControllerManager.swift; sourceTree = "<group>"; };
 		E13063F01DE727A5002A942C /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		E13063F21DE74A77002A942C /* UserManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
-		E1B30DC51DE492D3002B678D /* PostsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostsViewController.swift; sourceTree = "<group>"; };
 		E1B30DCB1DE49387002B678D /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		E1B7A99C1DE33AFA00EBFEA5 /* InternDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InternDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1B7A99F1DE33AFA00EBFEA5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E1B7A9A61DE33AFA00EBFEA5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E1B7A9AB1DE33AFA00EBFEA5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E1D78E451DEEE78900DE0984 /* MenuItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuItem.swift; sourceTree = "<group>"; };
+		E1D78E4A1DEEF62400DE0984 /* PostsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostsViewController.swift; sourceTree = "<group>"; };
+		E1D78E4C1DEEF6AA00DE0984 /* PostsPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostsPresenter.swift; sourceTree = "<group>"; };
 		E1EAA3F81DEDDBC9004FDA39 /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		E1EAA3FA1DEDDBDE004FDA39 /* MenuViewPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewPresenter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -114,7 +116,7 @@
 			isa = PBXGroup;
 			children = (
 				E1EAA3F71DEDDBC9004FDA39 /* Menu */,
-				E1B30DC51DE492D3002B678D /* PostsViewController.swift */,
+				E1D78E491DEEF62400DE0984 /* Posts */,
 				E1B30DCB1DE49387002B678D /* BaseViewController.swift */,
 				E13063F01DE727A5002A942C /* LoginViewController.swift */,
 			);
@@ -180,6 +182,15 @@
 				E1B7A9AB1DE33AFA00EBFEA5 /* Info.plist */,
 			);
 			path = InternDemo;
+			sourceTree = "<group>";
+		};
+		E1D78E491DEEF62400DE0984 /* Posts */ = {
+			isa = PBXGroup;
+			children = (
+				E1D78E4C1DEEF6AA00DE0984 /* PostsPresenter.swift */,
+				E1D78E4A1DEEF62400DE0984 /* PostsViewController.swift */,
+			);
+			path = Posts;
 			sourceTree = "<group>";
 		};
 		E1EAA3F71DEDDBC9004FDA39 /* Menu */ = {
@@ -314,10 +325,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E1D78E4B1DEEF62400DE0984 /* PostsViewController.swift in Sources */,
 				E13063E41DE6FC7E002A942C /* MenuTableHeaderView.swift in Sources */,
 				E122F8571DEC4C210036B0B5 /* NetworkDataSource.swift in Sources */,
-				E1B30DCA1DE492D3002B678D /* PostsViewController.swift in Sources */,
 				E13063E91DE712B7002A942C /* MenuTableViewCell.swift in Sources */,
+				E1D78E4D1DEEF6AA00DE0984 /* PostsPresenter.swift in Sources */,
 				E1B30DCC1DE49387002B678D /* BaseViewController.swift in Sources */,
 				E122F85F1DEC66EE0036B0B5 /* ConfigurationsManager.swift in Sources */,
 				E122F85D1DEC5B9D0036B0B5 /* APIRouter.swift in Sources */,
