@@ -8,6 +8,7 @@
 
 import UIKit
 import RxSwift
+import ObjectMapper
 
 class PostsProvider: NSObject {
 
@@ -20,14 +21,16 @@ class PostsProvider: NSObject {
             
             NetworkDataSource.shared
                 .request(request: .Posts(pageNumber: page, type: section))
-                .throttle(1, scheduler: MainScheduler.instance)
-                .flatMapLatest({ (response) -> Observable<[Post]> in
-                    print(response ?? "")
-                    
-                    return Observable.just([Post]())
-                    
-                }).subscribe(onNext: { (posts) in
-                    print(posts)
+                .flatMap({ (response) -> Observable<[Post]> in
+                    var posts: [Post]?
+                    if let result = response as? [String: AnyObject] {
+                        if let data = result["data"] as? [[String: Any]] {
+                            posts = Array<Post>(JSONArray: data)?.filter({ $0.isAlbum == false })
+                        }
+                    }
+                    return Observable.just(posts ?? [Post]())
+                })
+                .subscribe(onNext: { (posts) in
                     observer.onNext(posts)
                     observer.onCompleted()
                     

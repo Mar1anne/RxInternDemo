@@ -9,16 +9,13 @@
 import UIKit
 
 struct Constants {
-    
     struct UI {
         static let screenHeight: CGFloat = UIScreen.main.bounds.size.height
         static let screenWidth: CGFloat = UIScreen.main.bounds.size.width
     }
-    
 }
 
 struct Network {
-    
     struct Token {
         static let accessToken = "access_token"
         static let refreshToken = "refresh_token"
@@ -35,4 +32,11 @@ struct Network {
         static let page = "page"
     }
     
+    struct Post {
+        static let id = "id"
+        static let title = "title"
+        static let description = "description"
+        static let isAlbum = "is_album"
+        static let link = "link"
+    }
 }
