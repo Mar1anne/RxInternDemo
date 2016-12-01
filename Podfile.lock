@@ -6,6 +6,7 @@ PODS:
   - DrawerController/Core (3.0.0)
   - DrawerController/DrawerVisualStates (3.0.0):
     - DrawerController/Core
+  - HanekeSwift (0.10.1)
   - ObjectMapper (2.2.1)
   - RxCocoa (3.0.1):
     - RxSwift (~> 3.0)
@@ -18,21 +19,33 @@ PODS:
 DEPENDENCIES:
   - Alamofire
   - DrawerController
+  - HanekeSwift (from `https://github.com/Haneke/HanekeSwift.git`, branch `feature/swift-3`)
   - ObjectMapper
   - RxCocoa
   - RxOptional
   - RxSwift
   - SnapKit
 
+EXTERNAL SOURCES:
+  HanekeSwift:
+    :branch: feature/swift-3
+    :git: https://github.com/Haneke/HanekeSwift.git
+
+CHECKOUT OPTIONS:
+  HanekeSwift:
+    :commit: 1157a124ec699f4ad926cb054f1d0bfce88ae7a9
+    :git: https://github.com/Haneke/HanekeSwift.git
+
 SPEC CHECKSUMS:
   Alamofire: aa2e09d871c9160ac53c90e83c68064a94e3dfbe
   DrawerController: 5e859c5dbeae3cea20981eb5ff2aa16eb946dff9
+  HanekeSwift: 4113367892828e7700d24a384027de6ebc79aad1
   ObjectMapper: 41e43e1a89f8060ef5ea5d04ba852e269a621d68
   RxCocoa: 15a52fc590dcc700cb4a690a633b5c5184ce3a78
   RxOptional: b97b59183af80d1e729ac9e51d09a10be668d6a8
   RxSwift: af5680055c4ad04480189c52d28385b1029493a6
   SnapKit: 2e456761aa92d4d4067a7a5594c18769d451a8ad
 
-PODFILE CHECKSUM: fe7ba111e653b2e140d0277b295cbefa80e27d49
+PODFILE CHECKSUM: 8e61866a400f17d1dfe889c8c9455acf63448008
 
 COCOAPODS: 1.1.1
