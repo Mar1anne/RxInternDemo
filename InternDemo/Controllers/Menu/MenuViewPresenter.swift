@@ -26,13 +26,22 @@ protocol MenuViewPresenter: class {
 class MenuViewPresenterImpl: NSObject, MenuViewPresenter {
 
     private weak var view: MenuView?
-    private var menuOptions = Observable.just([MenuItem(type: MenuItemType.MyPosts),
-                                               MenuItem(type: MenuItemType.PopularPosts),
-                                               MenuItem(type: MenuItemType.Settings)]) // TODO: Change them runtime if other options are needed or changed
+    private var allMenuOptions: Variable<[MenuItem]> = Variable.init([MenuItem]())
+    private var menuOptions: Observable<[MenuItem]>!
 
+    override init() {
+        super.init()
+        
+        menuOptions = allMenuOptions.asObservable().map({ (item) in
+            return item
+        })
+    }
+    
     func attachView(_ view: MenuView) {
         if self.view == nil {
             self.view = view
+            
+            self.updateMenu(forCurrentSelection: MenuItem(type: .HotPosts))
             self.view?.setMenuOptions(menuOptions)
         }
     }
@@ -59,7 +68,15 @@ class MenuViewPresenterImpl: NSObject, MenuViewPresenter {
             centerController = SettingsViewController()
         }
         
+        updateMenu(forCurrentSelection: menuItem)
         view?.showController(centerController)
     }
     
+    private func updateMenu(forCurrentSelection selectedItem: MenuItem) {
+        let allOptions = [MenuItem(type: MenuItemType.HotPosts),
+                          MenuItem(type: MenuItemType.MyPosts),
+                          MenuItem(type: MenuItemType.PopularPosts),
+                          MenuItem(type: MenuItemType.Settings)]
+        allMenuOptions.value = allOptions.filter({ $0.type != selectedItem.type })
+    }
 }
