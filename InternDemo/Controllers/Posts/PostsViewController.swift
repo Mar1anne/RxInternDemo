@@ -41,9 +41,6 @@ class PostsViewController: BaseViewController, PostsView {
         
         addMenuButton()
         
-        view.backgroundColor = .white
-        navigationController?.navigationBar.isTranslucent = false
-
         let layout = UICollectionViewFlowLayout()
         let itemWidth = (Constants.UI.screenWidth - 30)/2
 
@@ -66,19 +63,6 @@ class PostsViewController: BaseViewController, PostsView {
         collectionView.snp.makeConstraints { (make) in
             make.edges.equalTo(view)
         }
-    }
-    
-    private func addMenuButton() {
-        let image = UIImage(named: "cm_menu_white")
-        let barButton = UIBarButtonItem(image: image,
-                                        style: .plain,
-                                        target: self, action: #selector(onMenu(barButton:)))
-        navigationItem.setLeftBarButton(barButton, animated: false)
-    }
-    
-    // MARK: Button actions
-    func onMenu(barButton: UIBarButtonItem) {
-        evo_drawerController?.toggleLeftDrawerSide(animated: true, completion: nil)
     }
     
     // MARK: - PostsView method

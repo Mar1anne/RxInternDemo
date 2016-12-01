@@ -8,9 +8,11 @@
 
 import UIKit
 import RxSwift
+import DrawerController
 
 protocol MenuView: class {
     func setMenuOptions(_ options: Observable<[MenuItem]>)
+    func showController(_ controller: BaseViewController)
 }
 
 protocol MenuViewPresenter: class {
@@ -44,7 +46,20 @@ class MenuViewPresenterImpl: NSObject, MenuViewPresenter {
     }
     
     func onMenuOptionSelected(_ menuItem: MenuItem) {
-        print(menuItem.description)
+        var centerController: BaseViewController
+        
+        switch menuItem.type {
+        case .MyPosts:
+            centerController = PostsViewController(withPresenter: PostsPresenterImpl(postsType: .MyPosts))
+        case .HotPosts:
+            centerController = PostsViewController(withPresenter: PostsPresenterImpl(postsType: .HotPosts))
+        case .PopularPosts:
+            centerController = PostsViewController(withPresenter: PostsPresenterImpl(postsType: .PopularPosts))
+        case .Settings:
+            centerController = SettingsViewController()
+        }
+        
+        view?.showController(centerController)
     }
     
 }

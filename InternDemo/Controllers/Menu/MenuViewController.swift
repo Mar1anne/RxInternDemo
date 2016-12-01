@@ -79,7 +79,7 @@ class MenuViewController: BaseViewController, MenuView {
                     guard let menuItem = cell?.menuItem else { return }
                     self?.presenter.onMenuOptionSelected(menuItem)
                 }
-                self?.evo_drawerController?.toggleLeftDrawerSide(animated: true, completion: nil)
+                self?.evo_drawerController?.closeDrawer(animated: true, completion: nil)
             }.addDisposableTo(disposeBag)
     }
     
@@ -94,4 +94,9 @@ class MenuViewController: BaseViewController, MenuView {
             .addDisposableTo(disposeBag)
     }
     
+    func showController(_ controller: BaseViewController) {
+        let navigationController = UINavigationController(rootViewController: controller)
+        evo_drawerController?.centerViewController = navigationController
+        evo_drawerController?.closeDrawer(animated: true, completion: nil)
+    }
 }
