@@ -46,7 +46,7 @@ class PostsViewController: BaseViewController, PostsView {
 
         layout.sectionInset = UIEdgeInsetsMake(10, 10, 10, 10)
         layout.minimumInteritemSpacing = 5
-        layout.itemSize = CGSize(width: itemWidth, height: itemWidth + 100)
+        layout.itemSize = CGSize(width: itemWidth, height: itemWidth + 50)
             
         collectionView = UICollectionView(frame: CGRect.zero,
                                           collectionViewLayout: layout)

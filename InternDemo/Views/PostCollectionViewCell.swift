@@ -65,7 +65,7 @@ class PostCollectionViewCell: UICollectionViewCell {
     }
     
     private func updateViewForPost(post: Post?) {
-        postDescriptionLabel.text = post?.postDescription
+        postDescriptionLabel.text = post?.title
         guard let url = URL(string: post?.link ?? "") else { return }
         
         postImageView.hnk_setImageFromURL(url,
