@@ -42,7 +42,7 @@ class MenuViewController: BaseViewController, MenuView {
     override func setupViews() {
         super.setupViews()
         
-        let headerSize = CGSize(width: Constants.UI.screenWidth, height: Constants.UI.screenHeight*0.5)
+        let headerSize = CGSize(width: Constants.UI.screenWidth, height: Constants.UI.screenHeight*0.4)
         let headerView = MenuTableHeaderView(frame: CGRect(origin: CGPoint.zero, size: headerSize))
         headerView.bindTo(userObservable: UserManager.shared.observableUser!)
         

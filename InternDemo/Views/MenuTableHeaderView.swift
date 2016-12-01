@@ -34,6 +34,7 @@ class MenuTableHeaderView: UIView {
         profileImageView.layer.borderWidth = 1
         profileImageView.clipsToBounds = true
         profileImageView.contentMode = .scaleAspectFill
+        profileImageView.image = UIImage(named: "profile")
         
         nameLabel.textAlignment = .center
         
