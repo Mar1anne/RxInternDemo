@@ -22,6 +22,7 @@
 		E13063EF1DE72783002A942C /* ControllerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E13063EE1DE72783002A942C /* ControllerManager.swift */; };
 		E13063F11DE727A5002A942C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E13063F01DE727A5002A942C /* LoginViewController.swift */; };
 		E13063F31DE74A77002A942C /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E13063F21DE74A77002A942C /* UserManager.swift */; };
+		E139E6E41DF03C9200F9D7A6 /* UIView+HelperMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = E139E6E31DF03C9200F9D7A6 /* UIView+HelperMethods.swift */; };
 		E1B30DCC1DE49387002B678D /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B30DCB1DE49387002B678D /* BaseViewController.swift */; };
 		E1B7A9A01DE33AFA00EBFEA5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B7A99F1DE33AFA00EBFEA5 /* AppDelegate.swift */; };
 		E1B7A9A71DE33AFA00EBFEA5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E1B7A9A61DE33AFA00EBFEA5 /* Assets.xcassets */; };
@@ -52,6 +53,7 @@
 		E13063EE1DE72783002A942C /* ControllerManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ControllerManager.swift; sourceTree = "<group>"; };
 		E13063F01DE727A5002A942C /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		E13063F21DE74A77002A942C /* UserManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
+		E139E6E31DF03C9200F9D7A6 /* UIView+HelperMethods.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+HelperMethods.swift"; sourceTree = "<group>"; };
 		E1B30DCB1DE49387002B678D /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		E1B7A99C1DE33AFA00EBFEA5 /* InternDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InternDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1B7A99F1DE33AFA00EBFEA5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -99,6 +101,7 @@
 			isa = PBXGroup;
 			children = (
 				E122E7F11DE86A090010E720 /* UIFont+CustomFonts.swift */,
+				E139E6E31DF03C9200F9D7A6 /* UIView+HelperMethods.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -336,6 +339,7 @@
 				E122F8571DEC4C210036B0B5 /* NetworkDataSource.swift in Sources */,
 				E13063E91DE712B7002A942C /* MenuTableViewCell.swift in Sources */,
 				E1D78E4D1DEEF6AA00DE0984 /* PostsPresenter.swift in Sources */,
+				E139E6E41DF03C9200F9D7A6 /* UIView+HelperMethods.swift in Sources */,
 				E1B30DCC1DE49387002B678D /* BaseViewController.swift in Sources */,
 				E122F85F1DEC66EE0036B0B5 /* ConfigurationsManager.swift in Sources */,
 				E122F85D1DEC5B9D0036B0B5 /* APIRouter.swift in Sources */,

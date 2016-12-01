@@ -41,7 +41,7 @@ class PostsViewController: BaseViewController, PostsView {
         
         addMenuButton()
         
-        view.backgroundColor = .lightGray
+        view.backgroundColor = .white
         navigationController?.navigationBar.isTranslucent = false
 
         collectionView = UICollectionView(frame: CGRect.zero,
@@ -83,7 +83,7 @@ class PostsViewController: BaseViewController, PostsView {
     }
     
     func showLoading(_ show: Bool) {
-        print("Should show loading: \(show)")
+        view.isLoading = show
     }
 }
 
