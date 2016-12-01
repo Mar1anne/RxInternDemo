@@ -44,11 +44,18 @@ class PostsViewController: BaseViewController, PostsView {
         view.backgroundColor = .white
         navigationController?.navigationBar.isTranslucent = false
 
+        let layout = UICollectionViewFlowLayout()
+        let itemWidth = (Constants.UI.screenWidth - 30)/2
+
+        layout.sectionInset = UIEdgeInsetsMake(10, 10, 10, 10)
+        layout.minimumInteritemSpacing = 5
+        layout.itemSize = CGSize(width: itemWidth, height: itemWidth + 50)
+            
         collectionView = UICollectionView(frame: CGRect.zero,
-                                          collectionViewLayout: UICollectionViewFlowLayout())
+                                          collectionViewLayout: layout)
         collectionView.register(PostCollectionViewCell.self,
                                 forCellWithReuseIdentifier: PostCollectionViewCell.cellIdentifier)
-        collectionView.backgroundColor = .yellow
+        collectionView.backgroundColor = .white
 
         view.addSubview(collectionView)
     }
@@ -85,19 +92,8 @@ class PostsViewController: BaseViewController, PostsView {
     func showLoading(_ show: Bool) {
         view.isLoading = show
     }
-}
-
-extension PostsViewController: UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView,
-                        layout collectionViewLayout: UICollectionViewLayout,
-                        sizeForItemAt indexPath: IndexPath) -> CGSize {
-        
-        return CGSize(width: 50, height: 50)
-    }
     
-    func collectionView(_ collectionView: UICollectionView,
-                        layout collectionViewLayout: UICollectionViewLayout,
-                        minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return 10
+    func titleUpdated(_ title: String) {
+        self.title = title
     }
 }

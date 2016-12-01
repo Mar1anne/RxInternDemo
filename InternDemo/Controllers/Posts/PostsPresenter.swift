@@ -17,6 +17,17 @@ enum PostsType: CustomStringConvertible {
     var description: String {
         switch self {
         case .MyPosts:
+            return "My Posts"
+        case .PopularPosts:
+            return "Popular Posts"
+        default:
+            return "Hot Posts"
+        }
+    }
+    
+    var networkParameter: String {
+        switch self {
+        case .MyPosts:
             return "user"
         case .PopularPosts:
             return "top"
@@ -29,6 +40,7 @@ enum PostsType: CustomStringConvertible {
 protocol PostsView: class {
     func bindPosts(_ posts: Observable<[Post]>?)
     func showLoading(_ show: Bool)
+    func titleUpdated(_ title: String)
 }
 
 protocol PostsPresenter: class {
@@ -42,12 +54,16 @@ protocol PostsPresenter: class {
 class PostsPresenterImpl: PostsPresenter {
 
     private weak var view: PostsView?
-    private var postsType: PostsType!
     private var postArray: Variable<[Post]>?
     private var posts: Observable<[Post]>?
     private var currentPage = 0
     private let disposeBag = DisposeBag()
-    
+    private var postsType: PostsType! {
+        didSet {
+            view?.titleUpdated(postsType.description)
+        }
+    }
+
     init(postsType: PostsType) {
         self.postsType = postsType
         self.postArray = Variable.init([Post]())
@@ -57,10 +73,10 @@ class PostsPresenterImpl: PostsPresenter {
     func attachView(_ view: PostsView) {
         if self.view == nil {
             self.view = view
-            self.view?.bindPosts(posts)
             
             self.observePosts()
             self.loadPosts()
+            self.view?.titleUpdated(postsType.description)
         }
     }
     
@@ -75,13 +91,15 @@ class PostsPresenterImpl: PostsPresenter {
         .map({ (posts) in
             return posts
         })
+        
+        self.view?.bindPosts(posts)
     }
     
     func loadPosts() {
         currentPage = 1
         view?.showLoading(true)
         
-        PostsProvider.postsForPage(currentPage, section: postsType.description)
+        PostsProvider.postsForPage(currentPage, section: postsType.networkParameter)
         .subscribe(onNext: { [weak self] (posts) in
             self?.view?.showLoading(false)
             self?.postArray?.value = posts
@@ -94,7 +112,7 @@ class PostsPresenterImpl: PostsPresenter {
     
     func loadMorePosts() {
         currentPage += 1
-        PostsProvider.postsForPage(currentPage, section: postsType.description)
+        PostsProvider.postsForPage(currentPage, section: postsType.networkParameter)
             .subscribe(onNext: { [weak self] (posts) in
                 self?.postArray?.value = posts
             }, onError: { error in

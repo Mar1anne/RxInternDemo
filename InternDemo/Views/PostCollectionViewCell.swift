@@ -36,7 +36,7 @@ class PostCollectionViewCell: UICollectionViewCell {
     
     //MARK: View setup
     private func setupView() {
-        backgroundColor = .red
+        backgroundColor = UIColor(colorLiteralRed: 236/255, green: 240/255, blue: 241/255, alpha: 1)
         
         postImageView.contentMode = .scaleAspectFill
         

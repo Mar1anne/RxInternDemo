@@ -44,7 +44,6 @@ class PostsProvider: NSObject {
             
             return Disposables.create()
         })
-        
 
     }
 }

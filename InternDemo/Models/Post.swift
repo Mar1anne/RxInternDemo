@@ -26,4 +26,5 @@ class Post: NSObject, Mappable {
         isAlbum <- map[Network.Post.isAlbum]
         postDescription <- map[Network.Post.description]
     }
+    
 }
