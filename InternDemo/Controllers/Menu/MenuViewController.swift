@@ -16,7 +16,7 @@ class MenuViewController: BaseViewController, MenuView {
     let tableView = UITableView()
     private let disposeBag = DisposeBag()
     private var presenter: MenuViewPresenter!
-    
+    private let backgroundImageView = UIImageView()
     
     init(withPresenter presenter: MenuViewPresenter) {
         super.init()
@@ -42,15 +42,17 @@ class MenuViewController: BaseViewController, MenuView {
     override func setupViews() {
         super.setupViews()
         
-        view.backgroundColor = .yellow
-        
         let headerSize = CGSize(width: Constants.UI.screenWidth, height: Constants.UI.screenHeight*0.5)
         let headerView = MenuTableHeaderView(frame: CGRect(origin: CGPoint.zero, size: headerSize))
         headerView.bindTo(userObservable: UserManager.shared.observableUser!)
         
+        backgroundImageView.image = UIImage(named: "bubbles")
+        backgroundImageView.contentMode = .scaleAspectFit
+        backgroundImageView.frame = CGRect(origin: CGPoint.zero, size: headerSize)
+        
         tableView.isScrollEnabled = false
-        tableView.tableFooterView = UIView()
         tableView.tableHeaderView = headerView
+        tableView.tableFooterView = backgroundImageView
         tableView.register(MenuTableViewCell.self, forCellReuseIdentifier: MenuTableViewCell.identifier)
 
         view.addSubview(tableView)
@@ -60,7 +62,7 @@ class MenuViewController: BaseViewController, MenuView {
         super.setupConstraints()
         
         tableView.snp.makeConstraints { (make) in
-            make.edges.equalTo(self.view)
+            make.edges.equalTo(view)
         }
     }
     
