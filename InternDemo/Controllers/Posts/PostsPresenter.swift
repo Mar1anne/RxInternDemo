@@ -75,6 +75,7 @@ class PostsPresenterImpl: PostsPresenter {
             self.view = view
             
             self.observePosts()
+            self.view?.showLoading(true)
             self.loadPosts()
             self.view?.titleUpdated(postsType.description)
         }
@@ -97,16 +98,15 @@ class PostsPresenterImpl: PostsPresenter {
     
     func loadPosts() {
         currentPage = 1
-        view?.showLoading(true)
         
         PostsProvider.postsForPage(currentPage, section: postsType.networkParameter)
         .subscribe(onNext: { [weak self] (posts) in
-            self?.view?.showLoading(false)
             self?.postArray?.value = posts
         }, onError: { error in
-            
-        }, onCompleted: nil,
-           onDisposed: nil)
+            print(error)
+        }, onCompleted: { [weak self] in
+            self?.view?.showLoading(false)
+        }, onDisposed: nil)
         .addDisposableTo(disposeBag)
     }
     
@@ -114,10 +114,13 @@ class PostsPresenterImpl: PostsPresenter {
         currentPage += 1
         PostsProvider.postsForPage(currentPage, section: postsType.networkParameter)
             .subscribe(onNext: { [weak self] (posts) in
-                self?.postArray?.value = posts
-            }, onError: { error in
-                
-            }, onCompleted: nil, onDisposed: nil)
+                self?.postArray?.value.append(contentsOf: posts)
+            }, onError: { [weak self] (error) in
+                self?.currentPage -= 1
+                print(error)
+            }, onCompleted: { [weak self] in
+                self?.view?.showLoading(false)
+            }, onDisposed: nil)
             .addDisposableTo(disposeBag)
     }
 }

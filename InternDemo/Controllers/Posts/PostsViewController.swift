@@ -8,6 +8,7 @@
 
 import UIKit
 import RxSwift
+import ESPullToRefresh
 
 class PostsViewController: BaseViewController, PostsView {
 
@@ -54,6 +55,14 @@ class PostsViewController: BaseViewController, PostsView {
                                 forCellWithReuseIdentifier: PostCollectionViewCell.cellIdentifier)
         collectionView.backgroundColor = .white
 
+        _ = collectionView.es_addPullToRefresh { [weak self] in
+            self?.presenter.loadPosts()
+        }
+        
+        _ = collectionView.es_addInfiniteScrolling { [weak self] in
+             self?.presenter.loadMorePosts()
+        }
+        
         view.addSubview(collectionView)
     }
     
@@ -75,6 +84,8 @@ class PostsViewController: BaseViewController, PostsView {
     
     func showLoading(_ show: Bool) {
         view.isLoading = show
+        collectionView.es_stopPullToRefresh(completion: true)
+        collectionView.es_stopLoadingMore()
     }
     
     func titleUpdated(_ title: String) {
