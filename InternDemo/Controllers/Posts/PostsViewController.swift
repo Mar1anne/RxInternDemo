@@ -46,7 +46,7 @@ class PostsViewController: BaseViewController, PostsView {
 
         layout.sectionInset = UIEdgeInsetsMake(10, 10, 10, 10)
         layout.minimumInteritemSpacing = 5
-        layout.itemSize = CGSize(width: itemWidth, height: itemWidth + 50)
+        layout.itemSize = CGSize(width: itemWidth, height: itemWidth + 100)
             
         collectionView = UICollectionView(frame: CGRect.zero,
                                           collectionViewLayout: layout)
@@ -69,7 +69,7 @@ class PostsViewController: BaseViewController, PostsView {
     func bindPosts(_ posts: Observable<[Post]>?) {
         posts?.bindTo(collectionView.rx.items(cellIdentifier: PostCollectionViewCell.cellIdentifier,
                                               cellType: PostCollectionViewCell.self)) { (row, element, cell) in
-            
+            cell.post = element
         }.addDisposableTo(disposeBag)
     }
     
