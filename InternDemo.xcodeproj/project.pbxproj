@@ -24,6 +24,7 @@
 		E13063F31DE74A77002A942C /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E13063F21DE74A77002A942C /* UserManager.swift */; };
 		E139E6E41DF03C9200F9D7A6 /* UIView+HelperMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = E139E6E31DF03C9200F9D7A6 /* UIView+HelperMethods.swift */; };
 		E139E6E71DF0636700F9D7A6 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E139E6E61DF0636700F9D7A6 /* SettingsViewController.swift */; };
+		E139E6E91DF08E4300F9D7A6 /* CreatePostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E139E6E81DF08E4300F9D7A6 /* CreatePostViewController.swift */; };
 		E1B30DCC1DE49387002B678D /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B30DCB1DE49387002B678D /* BaseViewController.swift */; };
 		E1B7A9A01DE33AFA00EBFEA5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B7A99F1DE33AFA00EBFEA5 /* AppDelegate.swift */; };
 		E1B7A9A71DE33AFA00EBFEA5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E1B7A9A61DE33AFA00EBFEA5 /* Assets.xcassets */; };
@@ -56,6 +57,7 @@
 		E13063F21DE74A77002A942C /* UserManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
 		E139E6E31DF03C9200F9D7A6 /* UIView+HelperMethods.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+HelperMethods.swift"; sourceTree = "<group>"; };
 		E139E6E61DF0636700F9D7A6 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		E139E6E81DF08E4300F9D7A6 /* CreatePostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreatePostViewController.swift; sourceTree = "<group>"; };
 		E1B30DCB1DE49387002B678D /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		E1B7A99C1DE33AFA00EBFEA5 /* InternDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InternDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1B7A99F1DE33AFA00EBFEA5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -201,6 +203,7 @@
 			children = (
 				E1D78E4C1DEEF6AA00DE0984 /* PostsPresenter.swift */,
 				E1D78E4A1DEEF62400DE0984 /* PostsViewController.swift */,
+				E139E6E81DF08E4300F9D7A6 /* CreatePostViewController.swift */,
 			);
 			path = Posts;
 			sourceTree = "<group>";
@@ -351,6 +354,7 @@
 				E13063EB1DE71E51002A942C /* User.swift in Sources */,
 				E1EAA3FB1DEDDBDE004FDA39 /* MenuViewPresenter.swift in Sources */,
 				E1D78E461DEEE78900DE0984 /* MenuItem.swift in Sources */,
+				E139E6E91DF08E4300F9D7A6 /* CreatePostViewController.swift in Sources */,
 				E13063EF1DE72783002A942C /* ControllerManager.swift in Sources */,
 				E1D78E511DEF1D7D00DE0984 /* PostsProvider.swift in Sources */,
 				E122F8611DECA2AB0036B0B5 /* Token.swift in Sources */,

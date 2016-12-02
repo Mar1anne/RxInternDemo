@@ -9,11 +9,12 @@
 import UIKit
 import RxSwift
 import ESPullToRefresh
+import RxCocoa
 
 class PostsViewController: BaseViewController, PostsView {
 
     private var collectionView: UICollectionView!
-    
+    private var newPostButton: UIButton!
     private var presenter: PostsPresenter!
     private let disposeBag = DisposeBag()
     
@@ -42,13 +43,20 @@ class PostsViewController: BaseViewController, PostsView {
         
         addMenuButton()
         
+        newPostButton = UIButton()
+        newPostButton.layer.cornerRadius = 40
+        newPostButton.clipsToBounds = true
+        newPostButton.setTitle("+", for: .normal)
+        newPostButton.titleLabel?.font = UIFont.gothicBoldFontOfSize(size: 35)
+        newPostButton.backgroundColor = UIColor(colorLiteralRed: 66/255, green: 165/255, blue: 245/255, alpha: 1)
+        
         let layout = UICollectionViewFlowLayout()
         let itemWidth = (Constants.UI.screenWidth - 30)/2
 
         layout.sectionInset = UIEdgeInsetsMake(10, 10, 10, 10)
         layout.minimumInteritemSpacing = 5
         layout.itemSize = CGSize(width: itemWidth, height: itemWidth + 50)
-            
+        
         collectionView = UICollectionView(frame: CGRect.zero,
                                           collectionViewLayout: layout)
         collectionView.register(PostCollectionViewCell.self,
@@ -63,7 +71,15 @@ class PostsViewController: BaseViewController, PostsView {
              self?.presenter.loadMorePosts()
         }
         
+        newPostButton.rx.tap
+            .throttle(0.5, scheduler: MainScheduler.instance)
+            .subscribe { [weak self] _ in
+                self?.onNewPost()
+            }
+            .addDisposableTo(disposeBag)
+        
         view.addSubview(collectionView)
+        view.addSubview(newPostButton)
     }
     
     override func setupConstraints() {
@@ -72,6 +88,19 @@ class PostsViewController: BaseViewController, PostsView {
         collectionView.snp.makeConstraints { (make) in
             make.edges.equalTo(view)
         }
+        
+        newPostButton.snp.makeConstraints { (make) in
+            make.width.height.equalTo(80)
+            make.right.bottom.equalTo(view).offset(-50)
+        }
+    }
+    
+    //MARK: - Button Action
+    func onNewPost() {
+        let postController = CreatePostViewController()
+        let navController = UINavigationController(rootViewController: postController)
+        
+        evo_drawerController?.present(navController, animated: true, completion: nil)
     }
     
     // MARK: - PostsView method
