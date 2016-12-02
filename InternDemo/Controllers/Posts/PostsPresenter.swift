@@ -102,8 +102,8 @@ class PostsPresenterImpl: PostsPresenter {
         PostsProvider.postsForPage(currentPage, section: postsType.networkParameter)
         .subscribe(onNext: { [weak self] (posts) in
             self?.postArray?.value = posts
-        }, onError: { error in
-            print(error)
+        }, onError: { [weak self] error in
+            self?.view?.showLoading(false)
         }, onCompleted: { [weak self] in
             self?.view?.showLoading(false)
         }, onDisposed: nil)
@@ -117,7 +117,7 @@ class PostsPresenterImpl: PostsPresenter {
                 self?.postArray?.value.append(contentsOf: posts)
             }, onError: { [weak self] (error) in
                 self?.currentPage -= 1
-                print(error)
+                self?.view?.showLoading(false)
             }, onCompleted: { [weak self] in
                 self?.view?.showLoading(false)
             }, onDisposed: nil)

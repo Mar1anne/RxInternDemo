@@ -13,7 +13,14 @@ class Token: NSObject, Mappable {
     
     var accessToken: String!
     var refreshToken: String!
-    var expiresIn: String!
+    private var expiresIn: String!
+    
+    var isValid: Bool {
+        guard let expiresInterval = Double(expiresIn) else { return false }
+
+        let date = Date(timeInterval: TimeInterval(expiresInterval), since: Date())
+        return date > Date()
+    }
     
     required init?(map: Map) { }
     
@@ -22,5 +29,4 @@ class Token: NSObject, Mappable {
         refreshToken <- map[Network.Token.refreshToken]
         expiresIn <- map[Network.Token.expiresIn]
     }
-
 }

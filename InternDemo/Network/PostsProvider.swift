@@ -19,7 +19,7 @@ class PostsProvider: NSObject {
         
         return Observable.create({ (observer) -> Disposable in
             
-            NetworkDataSource.shared
+            NetworkDataSource
                 .request(request: .Posts(pageNumber: page, type: section))
                 .flatMap({ (response) -> Observable<[Post]> in
                     var posts: [Post]?

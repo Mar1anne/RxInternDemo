@@ -12,9 +12,15 @@ import RxSwift
 
 class NetworkDataSource: NSObject {
 
-    static let shared = NetworkDataSource()
-    
-    func request(request: APIRouter) -> Observable<AnyObject?> {
+    static func request(request: APIRouter) -> Observable<AnyObject?> {
+        return TokenProvider.getToken()
+            .flatMap({ (token) -> Observable<AnyObject?> in
+                print("new token: \(token)")
+                return NetworkDataSource.sendRequest(request: request)
+            })
+    }
+ 
+    private static func sendRequest(request: APIRouter) -> Observable<AnyObject?> {
         return Observable.create({ (observer) -> Disposable in
             
             Alamofire

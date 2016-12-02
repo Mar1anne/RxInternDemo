@@ -38,7 +38,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let urlParams = url.absoluteString.replacingOccurrences(of: url.scheme! + "://#", with: "").components(separatedBy: "&")
         
         TokenManager.shared
-        .parseParameters(parameters: urlParams)
+        .parseUrlTokenParameters(parameters: urlParams)
         .subscribe(onNext: { (user, token) in
             UserManager.shared.currentUser = user
             TokenManager.shared.accessToken = token

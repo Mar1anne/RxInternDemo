@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		6C66AB1EC3BB638940A1908D /* Pods_InternDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2024B1A67978F32B808194A6 /* Pods_InternDemo.framework */; };
+		E105E59B1DF1D0F700681506 /* TokenProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = E105E59A1DF1D0F700681506 /* TokenProvider.swift */; };
 		E122E7F21DE86A090010E720 /* UIFont+CustomFonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = E122E7F11DE86A090010E720 /* UIFont+CustomFonts.swift */; };
 		E122F8571DEC4C210036B0B5 /* NetworkDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E122F8561DEC4C210036B0B5 /* NetworkDataSource.swift */; };
 		E122F85B1DEC5A210036B0B5 /* TokenManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E122F85A1DEC5A210036B0B5 /* TokenManager.swift */; };
@@ -41,6 +42,7 @@
 		1A75AD2BF335ABD2CC99FC2C /* Pods-InternDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InternDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-InternDemo/Pods-InternDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		2024B1A67978F32B808194A6 /* Pods_InternDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_InternDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A0AEFCC571C0B4B7C873F65 /* Pods-InternDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InternDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-InternDemo/Pods-InternDemo.release.xcconfig"; sourceTree = "<group>"; };
+		E105E59A1DF1D0F700681506 /* TokenProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TokenProvider.swift; sourceTree = "<group>"; };
 		E122E7F11DE86A090010E720 /* UIFont+CustomFonts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIFont+CustomFonts.swift"; sourceTree = "<group>"; };
 		E122F8561DEC4C210036B0B5 /* NetworkDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkDataSource.swift; sourceTree = "<group>"; };
 		E122F85A1DEC5A210036B0B5 /* TokenManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TokenManager.swift; path = ../Network/TokenManager.swift; sourceTree = "<group>"; };
@@ -151,6 +153,7 @@
 				E122F8561DEC4C210036B0B5 /* NetworkDataSource.swift */,
 				E122F85C1DEC5B9D0036B0B5 /* APIRouter.swift */,
 				E1D78E501DEF1D7D00DE0984 /* PostsProvider.swift */,
+				E105E59A1DF1D0F700681506 /* TokenProvider.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -362,6 +365,7 @@
 				E13063F31DE74A77002A942C /* UserManager.swift in Sources */,
 				E13063ED1DE71E59002A942C /* Post.swift in Sources */,
 				E1EAA3F91DEDDBC9004FDA39 /* MenuViewController.swift in Sources */,
+				E105E59B1DF1D0F700681506 /* TokenProvider.swift in Sources */,
 				E122E7F21DE86A090010E720 /* UIFont+CustomFonts.swift in Sources */,
 				E1B7A9A01DE33AFA00EBFEA5 /* AppDelegate.swift in Sources */,
 				E13063E71DE6FCFA002A942C /* Constants.swift in Sources */,

@@ -10,6 +10,8 @@ import UIKit
 import Alamofire
 import RxSwift
 import ObjectMapper
+import RxOptional
+import RxCocoa
 
 class TokenManager: NSObject {
 
@@ -29,7 +31,7 @@ class TokenManager: NSObject {
         }
     }
 
-    func parseParameters(parameters: [String]) -> Observable<(User, Token)> {
+    func parseUrlTokenParameters(parameters: [String]) -> Observable<(User, Token)> {
         return Observable.create({ (observer) -> Disposable in
         
             var jsonParams = [String: AnyObject]()
@@ -62,5 +64,4 @@ class TokenManager: NSObject {
         UserDefaults.standard.set(json, forKey: Network.Token.accessToken)
         UserDefaults.standard.synchronize()
     }
-    
 }
