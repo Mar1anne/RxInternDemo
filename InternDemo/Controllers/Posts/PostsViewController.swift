@@ -97,7 +97,7 @@ class PostsViewController: BaseViewController, PostsView {
     
     //MARK: - Button Action
     func onNewPost() {
-        let postController = CreatePostViewController()
+        let postController = CreatePostViewController(withPresenter: CreatePostsPresenterImpl())
         let navController = UINavigationController(rootViewController: postController)
         
         evo_drawerController?.present(navController, animated: true, completion: nil)

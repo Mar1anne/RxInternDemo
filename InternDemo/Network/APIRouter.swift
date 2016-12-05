@@ -14,6 +14,7 @@ enum APIRouter: URLRequestConvertible {
     case Authenticate([String: Any])
     case Posts(pageNumber: Int, type: String)
     case RefreshToken([String: Any])
+    case UploadImage([String: Any])
     
     var path: String {
         switch self {
@@ -23,12 +24,14 @@ enum APIRouter: URLRequestConvertible {
             return "https://api.imgur.com/3/gallery/\(type)/\(page)"
         case .RefreshToken:
             return "https://api.imgur.com/oauth2/token"
+        case .UploadImage:
+            return "https://api.imgur.com/3/image"
         }
     }
     
     var method: Alamofire.HTTPMethod {
         switch self {
-        case .RefreshToken:
+        case .RefreshToken, .UploadImage:
             return .post
         default:
             return .get
@@ -40,6 +43,7 @@ enum APIRouter: URLRequestConvertible {
         case .Authenticate(let parameters): return parameters
         case .Posts(_, _): return nil
         case .RefreshToken(let parameters): return parameters
+        case .UploadImage(let parameters): return parameters
         }
     }
     
@@ -59,7 +63,7 @@ enum APIRouter: URLRequestConvertible {
         
         switch self { // don't like this, refactor! :D
             
-        case .Posts:
+        case .Posts, .UploadImage:
             urlRequest.setValue("Bearer " + TokenManager.shared.accessToken!.accessToken, forHTTPHeaderField: "Authorization")
         default: break
         }

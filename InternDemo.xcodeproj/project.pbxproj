@@ -12,6 +12,8 @@
 		E10B329A1DF5A6BC005C06A5 /* UIImagePickerController+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10B32991DF5A6BC005C06A5 /* UIImagePickerController+Rx.swift */; };
 		E10B329C1DF5A6E9005C06A5 /* RxImagePickerDelegateProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10B329B1DF5A6E9005C06A5 /* RxImagePickerDelegateProxy.swift */; };
 		E10B329E1DF5A714005C06A5 /* UIImagePickerController+RxCreate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10B329D1DF5A714005C06A5 /* UIImagePickerController+RxCreate.swift */; };
+		E10B32A01DF5B442005C06A5 /* CreatePostsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10B329F1DF5B442005C06A5 /* CreatePostsPresenter.swift */; };
+		E10B32A21DF5BF97005C06A5 /* UIImage+HelperMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10B32A11DF5BF97005C06A5 /* UIImage+HelperMethods.swift */; };
 		E122E7F21DE86A090010E720 /* UIFont+CustomFonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = E122E7F11DE86A090010E720 /* UIFont+CustomFonts.swift */; };
 		E122F8571DEC4C210036B0B5 /* NetworkDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E122F8561DEC4C210036B0B5 /* NetworkDataSource.swift */; };
 		E122F85B1DEC5A210036B0B5 /* TokenManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E122F85A1DEC5A210036B0B5 /* TokenManager.swift */; };
@@ -49,6 +51,8 @@
 		E10B32991DF5A6BC005C06A5 /* UIImagePickerController+Rx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImagePickerController+Rx.swift"; sourceTree = "<group>"; };
 		E10B329B1DF5A6E9005C06A5 /* RxImagePickerDelegateProxy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RxImagePickerDelegateProxy.swift; sourceTree = "<group>"; };
 		E10B329D1DF5A714005C06A5 /* UIImagePickerController+RxCreate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImagePickerController+RxCreate.swift"; sourceTree = "<group>"; };
+		E10B329F1DF5B442005C06A5 /* CreatePostsPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreatePostsPresenter.swift; sourceTree = "<group>"; };
+		E10B32A11DF5BF97005C06A5 /* UIImage+HelperMethods.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+HelperMethods.swift"; sourceTree = "<group>"; };
 		E122E7F11DE86A090010E720 /* UIFont+CustomFonts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIFont+CustomFonts.swift"; sourceTree = "<group>"; };
 		E122F8561DEC4C210036B0B5 /* NetworkDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkDataSource.swift; sourceTree = "<group>"; };
 		E122F85A1DEC5A210036B0B5 /* TokenManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TokenManager.swift; path = ../Network/TokenManager.swift; sourceTree = "<group>"; };
@@ -124,6 +128,7 @@
 			children = (
 				E122E7F11DE86A090010E720 /* UIFont+CustomFonts.swift */,
 				E139E6E31DF03C9200F9D7A6 /* UIView+HelperMethods.swift */,
+				E10B32A11DF5BF97005C06A5 /* UIImage+HelperMethods.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -223,6 +228,7 @@
 			children = (
 				E1D78E4C1DEEF6AA00DE0984 /* PostsPresenter.swift */,
 				E1D78E4A1DEEF62400DE0984 /* PostsViewController.swift */,
+				E10B329F1DF5B442005C06A5 /* CreatePostsPresenter.swift */,
 				E139E6E81DF08E4300F9D7A6 /* CreatePostViewController.swift */,
 			);
 			path = Posts;
@@ -369,6 +375,7 @@
 				E13063E91DE712B7002A942C /* MenuTableViewCell.swift in Sources */,
 				E1D78E4D1DEEF6AA00DE0984 /* PostsPresenter.swift in Sources */,
 				E139E6E41DF03C9200F9D7A6 /* UIView+HelperMethods.swift in Sources */,
+				E10B32A01DF5B442005C06A5 /* CreatePostsPresenter.swift in Sources */,
 				E1B30DCC1DE49387002B678D /* BaseViewController.swift in Sources */,
 				E122F85F1DEC66EE0036B0B5 /* ConfigurationsManager.swift in Sources */,
 				E139E6E71DF0636700F9D7A6 /* SettingsViewController.swift in Sources */,
@@ -381,6 +388,7 @@
 				E13063EF1DE72783002A942C /* ControllerManager.swift in Sources */,
 				E1D78E511DEF1D7D00DE0984 /* PostsProvider.swift in Sources */,
 				E122F8611DECA2AB0036B0B5 /* Token.swift in Sources */,
+				E10B32A21DF5BF97005C06A5 /* UIImage+HelperMethods.swift in Sources */,
 				E122F85B1DEC5A210036B0B5 /* TokenManager.swift in Sources */,
 				E13063F31DE74A77002A942C /* UserManager.swift in Sources */,
 				E13063ED1DE71E59002A942C /* Post.swift in Sources */,

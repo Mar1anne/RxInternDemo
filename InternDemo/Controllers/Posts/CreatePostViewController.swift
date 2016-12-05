@@ -11,17 +11,47 @@ import SnapKit
 import RxCocoa
 import RxSwift
 
-class CreatePostViewController: BaseViewController {
+class CreatePostViewController: BaseViewController, CreatePostsView {
 
     private let imagePreview = UIImageView()
     private let titleBox = UITextView()
     private let uploadButton = UIButton()
+    private let chooseImageButton = UIButton()
     private let disposeBag = DisposeBag()
     
+    private var presenter: CreatePostsPresenter?
+    private var hasImage = Variable<Bool>(false)
+    
+    private var titleText: Observable<String?> {
+        return titleBox
+            .rx
+            .text
+            .throttle(0.5, scheduler: MainScheduler.instance)
+            .distinctUntilChanged()
+    }
+    
+    init(withPresenter presenter: CreatePostsPresenter) {
+        super.init()
+        self.presenter = presenter
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    deinit {
+        presenter?.detachView(self)
+    }
+    
+    // MARK: View Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         addCloseButton()
         setupImagePicker()
+        setupUploadButton()
+        
+        presenter?.attachView(self)
     }
 
     //MARK: View setup
@@ -31,6 +61,7 @@ class CreatePostViewController: BaseViewController {
         title = "Create post"
         
         imagePreview.backgroundColor = UIColor(colorLiteralRed: 236/255, green: 240/255, blue: 241/255, alpha: 1)
+        imagePreview.isUserInteractionEnabled = false
         
         titleBox.backgroundColor = UIColor(colorLiteralRed: 236/255, green: 240/255, blue: 241/255, alpha: 1)
         titleBox.layer.cornerRadius = 10
@@ -39,14 +70,21 @@ class CreatePostViewController: BaseViewController {
         titleBox.layer.borderWidth = 0.5
         titleBox.font = UIFont.gothicRegularFontOfSize(size: 20)
         
+        chooseImageButton.layer.cornerRadius = 15
+        chooseImageButton.clipsToBounds = true
+        chooseImageButton.backgroundColor = UIColor(colorLiteralRed: 66/255, green: 165/255, blue: 245/255, alpha: 1)
+        chooseImageButton.setTitle("+", for: .normal)
+        
         uploadButton.layer.cornerRadius = 20
         uploadButton.clipsToBounds = true
         uploadButton.backgroundColor = UIColor(colorLiteralRed: 66/255, green: 165/255, blue: 245/255, alpha: 1)
         uploadButton.setTitle("Upload image", for: .normal)
+        uploadButton.isEnabled = false
         
         view.addSubview(imagePreview)
         view.addSubview(titleBox)
         view.addSubview(uploadButton)
+        view.addSubview(chooseImageButton)
     }
     
     override func setupConstraints() {
@@ -70,6 +108,11 @@ class CreatePostViewController: BaseViewController {
             make.top.equalTo(imagePreview.snp.bottom).offset(20)
             make.bottom.equalTo(uploadButton.snp.top).offset(-20)
         }
+        
+        chooseImageButton.snp.makeConstraints { (make) in
+            make.width.height.equalTo(30)
+            make.bottom.right.equalTo(imagePreview).offset(-10)
+        }
     }
     
     private func addCloseButton() {
@@ -88,8 +131,7 @@ class CreatePostViewController: BaseViewController {
     
     //MARK: - Rx Setup
     func setupImagePicker() {
-        
-        uploadButton.rx.tap
+        chooseImageButton.rx.tap
             .flatMapLatest { [weak self] _ in
                 return UIImagePickerController.rx.createWithParent(self) { picker in
                     picker.sourceType = .photoLibrary
@@ -103,7 +145,27 @@ class CreatePostViewController: BaseViewController {
             .map { info in
                 return info[UIImagePickerControllerOriginalImage] as? UIImage
             }
+            .do(onNext: { (image) in
+                self.hasImage.value = image != nil
+            }, onError: nil, onCompleted: nil, onSubscribe: nil, onDispose:nil)
             .bindTo(imagePreview.rx.image)
             .addDisposableTo(disposeBag)
+    }
+    
+    func setupUploadButton() {
+        _ = Observable.combineLatest(titleText, hasImage.asObservable(), resultSelector: { (text, image) -> (Bool) in
+            return (text != nil && text!.characters.count > 0 && image)
+        }).do(onNext: { (result) in
+            self.uploadButton.alpha = result ? 1 : 0.5
+        }).bindTo(self.uploadButton.rx.isEnabled)
+        
+        uploadButton.rx.tap.subscribe(onNext: { (_) in
+            self.presenter?.uploadImage(self.imagePreview.image!)
+        }).addDisposableTo(disposeBag)
+    }
+    
+    // MARK: CreatePostView
+    func close() {
+        dismiss(animated: true, completion: nil)
     }
 }
