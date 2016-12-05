@@ -15,7 +15,7 @@ class NetworkDataSource: NSObject {
     static func request(request: APIRouter) -> Observable<AnyObject?> {
         return TokenProvider.getToken()
             .flatMap({ (token) -> Observable<AnyObject?> in
-                print("new token: \(token)")
+                print("token: \(token.accessToken)")
                 return NetworkDataSource.sendRequest(request: request)
             })
     }

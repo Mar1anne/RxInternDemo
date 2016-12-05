@@ -91,7 +91,7 @@ class PostsViewController: BaseViewController, PostsView {
         
         newPostButton.snp.makeConstraints { (make) in
             make.width.height.equalTo(80)
-            make.right.bottom.equalTo(view).offset(-50)
+            make.right.bottom.equalTo(view).offset(-35)
         }
     }
     
