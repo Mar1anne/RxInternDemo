@@ -17,7 +17,6 @@ class CreatePostViewController: BaseViewController, CreatePostsView {
     private let titleBox = UITextView()
     private let uploadButton = UIButton()
     private let chooseImageButton = UIButton()
-    private let disposeBag = DisposeBag()
     
     private var presenter: CreatePostsPresenter?
     private var hasImage = Variable<Bool>(false)

@@ -16,7 +16,6 @@ class PostsViewController: BaseViewController, PostsView {
     private var collectionView: UICollectionView!
     private var newPostButton: UIButton!
     private var presenter: PostsPresenter!
-    private let disposeBag = DisposeBag()
     
     init(withPresenter presenter: PostsPresenter) {
         super.init()

@@ -14,7 +14,6 @@ import RxCocoa
 class MenuViewController: BaseViewController, MenuView {
 
     let tableView = UITableView()
-    private let disposeBag = DisposeBag()
     private var presenter: MenuViewPresenter!
     private let backgroundImageView = UIImageView()
     

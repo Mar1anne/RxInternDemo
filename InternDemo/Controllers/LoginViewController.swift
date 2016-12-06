@@ -8,14 +8,12 @@
 
 import UIKit
 import RxCocoa
-import RxSwift
 
 class LoginViewController: BaseViewController {
 
     private let logoLabel = UILabel()
     private let loginButton = UIButton()
     private let loginImage = UIImageView()
-    private let disposeBag = DisposeBag()
     
     //MARK: - View setup
     override func setupViews() {
