@@ -19,6 +19,13 @@ class NetworkDataSource: NSObject {
                 return NetworkDataSource.sendRequest(request: request)
             })
     }
+    
+    static func upload(to request: APIRouter, image: UIImage) -> Observable<Progress> {
+        return TokenProvider.getToken()
+            .flatMap({ (token) -> Observable<Progress> in
+                return NetworkDataSource.upload(request, image: image)
+            })
+    }
  
     private static func sendRequest(request: APIRouter) -> Observable<AnyObject?> {
         return Observable.create({ (observer) -> Disposable in
@@ -42,4 +49,39 @@ class NetworkDataSource: NSObject {
         })
     }
     
+    private static func upload(_ request: APIRouter, image: UIImage) -> Observable<Progress> {
+        return Observable.create({ (subscriber) -> Disposable in
+            
+            Alamofire.upload(multipartFormData: { (multipartFormData) in
+                multipartFormData.append(image.asData(), withName: "image")
+                multipartFormData.append("title_example".asData(), withName: "title")
+                
+            }, with: request,
+               encodingCompletion: { (encodingResult) in
+                switch encodingResult {
+                case .success(let request, _, _):
+                    
+                    _ = request.uploadProgress(closure: { (progress) in
+                        OperationQueue.main.addOperation({
+//                            let percentProgress = progress.fractionCompleted * 100
+//                            print(percentProgress)
+                            subscriber.onNext(progress)
+//                            print("progress: ", progress.localizedDescription)
+                        })
+                    })
+                    
+                    request.response(completionHandler: { (response) in
+                        print("Completion: \(response)")
+                        subscriber.onCompleted()
+                    })
+                    
+                case .failure(let error):
+                    subscriber.onError(error)
+                }
+            })
+            
+            return Disposables.create()
+        })
+        
+    }
 }

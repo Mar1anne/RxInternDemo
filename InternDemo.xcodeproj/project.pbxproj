@@ -31,6 +31,8 @@
 		E139E6E41DF03C9200F9D7A6 /* UIView+HelperMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = E139E6E31DF03C9200F9D7A6 /* UIView+HelperMethods.swift */; };
 		E139E6E71DF0636700F9D7A6 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E139E6E61DF0636700F9D7A6 /* SettingsViewController.swift */; };
 		E139E6E91DF08E4300F9D7A6 /* CreatePostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E139E6E81DF08E4300F9D7A6 /* CreatePostViewController.swift */; };
+		E1A660091DF700EF0058E193 /* UploadProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1A660081DF700EF0058E193 /* UploadProgressView.swift */; };
+		E1A6600B1DF701010058E193 /* UploadProgressWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1A6600A1DF701010058E193 /* UploadProgressWindow.swift */; };
 		E1B30DCC1DE49387002B678D /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B30DCB1DE49387002B678D /* BaseViewController.swift */; };
 		E1B7A9A01DE33AFA00EBFEA5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B7A99F1DE33AFA00EBFEA5 /* AppDelegate.swift */; };
 		E1B7A9A71DE33AFA00EBFEA5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E1B7A9A61DE33AFA00EBFEA5 /* Assets.xcassets */; };
@@ -70,6 +72,8 @@
 		E139E6E31DF03C9200F9D7A6 /* UIView+HelperMethods.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+HelperMethods.swift"; sourceTree = "<group>"; };
 		E139E6E61DF0636700F9D7A6 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		E139E6E81DF08E4300F9D7A6 /* CreatePostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreatePostViewController.swift; sourceTree = "<group>"; };
+		E1A660081DF700EF0058E193 /* UploadProgressView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UploadProgressView.swift; sourceTree = "<group>"; };
+		E1A6600A1DF701010058E193 /* UploadProgressWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UploadProgressWindow.swift; sourceTree = "<group>"; };
 		E1B30DCB1DE49387002B678D /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		E1B7A99C1DE33AFA00EBFEA5 /* InternDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InternDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1B7A99F1DE33AFA00EBFEA5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -147,6 +151,15 @@
 			path = Misc;
 			sourceTree = "<group>";
 		};
+		E1A660071DF700EF0058E193 /* UploadImageProgress */ = {
+			isa = PBXGroup;
+			children = (
+				E1A660081DF700EF0058E193 /* UploadProgressView.swift */,
+				E1A6600A1DF701010058E193 /* UploadProgressWindow.swift */,
+			);
+			path = UploadImageProgress;
+			sourceTree = "<group>";
+		};
 		E1B30DC31DE492D3002B678D /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -183,6 +196,7 @@
 		E1B30DC81DE492D3002B678D /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				E1A660071DF700EF0058E193 /* UploadImageProgress */,
 				E13063E31DE6FC7E002A942C /* MenuTableHeaderView.swift */,
 				E13063E81DE712B7002A942C /* MenuTableViewCell.swift */,
 				E1D78E4E1DEF082400DE0984 /* PostCollectionViewCell.swift */,
@@ -371,6 +385,7 @@
 				E10B329C1DF5A6E9005C06A5 /* RxImagePickerDelegateProxy.swift in Sources */,
 				E10B329E1DF5A714005C06A5 /* UIImagePickerController+RxCreate.swift in Sources */,
 				E10B329A1DF5A6BC005C06A5 /* UIImagePickerController+Rx.swift in Sources */,
+				E1A6600B1DF701010058E193 /* UploadProgressWindow.swift in Sources */,
 				E122F8571DEC4C210036B0B5 /* NetworkDataSource.swift in Sources */,
 				E13063E91DE712B7002A942C /* MenuTableViewCell.swift in Sources */,
 				E1D78E4D1DEEF6AA00DE0984 /* PostsPresenter.swift in Sources */,
@@ -388,6 +403,7 @@
 				E13063EF1DE72783002A942C /* ControllerManager.swift in Sources */,
 				E1D78E511DEF1D7D00DE0984 /* PostsProvider.swift in Sources */,
 				E122F8611DECA2AB0036B0B5 /* Token.swift in Sources */,
+				E1A660091DF700EF0058E193 /* UploadProgressView.swift in Sources */,
 				E10B32A21DF5BF97005C06A5 /* UIImage+HelperMethods.swift in Sources */,
 				E122F85B1DEC5A210036B0B5 /* TokenManager.swift in Sources */,
 				E13063F31DE74A77002A942C /* UserManager.swift in Sources */,

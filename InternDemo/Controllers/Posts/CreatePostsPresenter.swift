@@ -22,7 +22,6 @@ protocol CreatePostsPresenter: class {
 
 class CreatePostsPresenterImpl: CreatePostsPresenter {
     private weak var view: CreatePostsView?
-    private let disposeBag = DisposeBag()
     
     //MARK: CreatePostsPresenter
     func attachView(_ view: CreatePostsView) {
@@ -43,13 +42,10 @@ class CreatePostsPresenterImpl: CreatePostsPresenter {
         let parameters = ["image": base64ImageData]
         
         self.view?.close()
-        
-        NetworkDataSource.request(request: .UploadImage(parameters))
-            .subscribe(onNext: { (response) in
-                print(response ?? "no response")
-            }, onError: { (error) in
-                print(error)
-            }, onCompleted: nil, onDisposed: nil)
-            .addDisposableTo(disposeBag)
+
+        let progress = NetworkDataSource.upload(to: .UploadImage(parameters), image: image)
+        let uploadWindow = UploadProgressWindow(frame: UIScreen.main.bounds)
+        uploadWindow.makeKeyAndVisible()
+        uploadWindow.showNotification(withProgress: progress)
     }
 }

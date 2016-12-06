@@ -21,11 +21,21 @@ enum APIRouter: URLRequestConvertible {
         case .Authenticate:
             return "https://api.imgur.com/oauth2/authorize"
         case .Posts(let page,let type):
-            return "https://api.imgur.com/3/gallery/\(type)/\(page)"
+            return "https://api.imgur.com/3/gallery/\(type)/\(sort)/\(page)?showViral=false"
         case .RefreshToken:
             return "https://api.imgur.com/oauth2/token"
         case .UploadImage:
             return "https://api.imgur.com/3/image"
+        }
+    }
+    
+    var sort: String {
+        switch self {
+        case .Posts(_ , let type):
+            if type == "user" { return "time" }
+            else { fallthrough }
+        default:
+            return "viral"
         }
     }
     

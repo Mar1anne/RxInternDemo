@@ -46,4 +46,13 @@ class PostsProvider: NSObject {
         })
 
     }
+    
+    class func uploadImage(_ image: UIImage) -> Observable<Bool> {
+        return Observable.create({ (subscriber) -> Disposable in
+            
+            
+            
+            return Disposables.create()
+        })
+    }
 }
